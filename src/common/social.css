@@ -1,0 +1,71 @@
+
+#footer{
+  height: 200px;
+  background: #1b1b1b;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#copyright{
+  color: white;
+  text-align: center;
+  align-self: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+}
+
+#social{
+  text-align: center;
+  align-self: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Apply this style to all anchor tags in footer */
+#social a{
+  color: white;
+  border: 2px solid #616161;
+  border-radius: 50%;
+  display: inline-block;
+  letter-spacing: normal;
+  text-align: center;
+
+  /* Adds spacing between any two links */
+  margin: 0 .5rem;
+
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* FontAwesome tag compiles to span tag */
+#social a span{
+    color: #fbfbfb;
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+    padding-top: .5rem;
+    transition: all .4s ease 0s;
+}
+
+#social a:hover .fa-facebook{
+  color: #3b5999;
+}
+
+#social a:hover .fa-twitter{
+  color: #33CCFF;
+}
+
+#social a:hover .fa-github{
+  color: #333333;
+}
+
+#social a:hover .fa-codepen{
+  color: #212121;
+}
+
+#social a:hover .fa-linkedin{
+  color: #4875B4;
+}
