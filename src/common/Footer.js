@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-
-// import { facebook, github, codepen, twitter } from './social_media_links'
 import * as links from './social_media_links'
-// import './social.css'
-import './social.css'
+import './footer_style.css'
 
 // Component representing bottom part of the UI.
 // All other content components have this component as their sibling on the UI.

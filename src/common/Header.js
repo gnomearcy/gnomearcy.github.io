@@ -1,19 +1,47 @@
 import React, { Component } from 'react';
+import ReactSVG from 'react-svg';
 import { Link } from 'react-router-dom';
+import routes from '../routes.js';
+import logo_image from '../assets/logo.png'
 
-class Header extends Component{
+import './header_style0.css';
+
+export default class Header extends Component{
   render(){
     return(
-      <div>
-        <ul id="navigation_links">
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/work'>Work</Link></li>
-          <li><Link to='/about'>About</Link></li>
-          <li><Link to='/contact'>Contact</Link></li>
-        </ul>
+      <div className="header">
+        <Logo/>
+        <Links/>
       </div>
     );
   }
 }
 
-export default Header;
+class Logo extends Component{
+  render(){
+    return(
+      <a className="logo" href="/">
+          <img src={logo_image} alt="Tomislav Martinčić logo"/>
+          <span>Tomislav Martinčić</span>
+      </a>
+    )
+  }
+}
+
+class Links extends Component{
+  render(){
+    return(
+      <ul className="links">
+        <li>
+          <Link to={routes.contact} className="link" title="Contact">Contact</Link>
+        </li>
+        <li>
+          <Link to={routes.about} className="link" title="About">About</Link>
+        </li>
+        <li>
+          <Link to={routes.work} className="link" title="Work">Work</Link>
+        </li>
+      </ul>
+    )
+  }
+}
