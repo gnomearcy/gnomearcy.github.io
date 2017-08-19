@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link, Router, Switch, Route, HashRouter } from 'react-router-dom'
 
+import Media from 'react-media'
+
 import Home from '../home/Home';
 import Work from '../work/Work';
 import About from '../about/About'
 import Contact from '../contact/Contact'
+import Tests from '../testing/Tests'
 
 import Header from '../common/Header';
 import Footer from '../common/Footer'
+
+import './root_style.css'
 
 // This is the wrapper for navigation in header section and the content section
 // It is the root component being rendered via the ReactDOM.render() method.
@@ -36,11 +41,11 @@ class Content extends Component {
         <Route exact path='/work' component={Work} />
         <Route exact path='/about' component={About} />
         <Route exact path="/contact" component={Contact}/>
+        <Route exact path="/testing" component={Tests}/>
       </div>
     );
   }
 }
-
 
 // Only export the Root (wrapper) for usage outside of this file.
 export default Root;

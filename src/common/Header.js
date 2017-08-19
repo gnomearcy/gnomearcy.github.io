@@ -1,47 +1,90 @@
 import React, { Component } from 'react';
 import ReactSVG from 'react-svg';
 import { Link } from 'react-router-dom';
-import routes from '../routes.js';
-import logo_image from '../assets/logo.png'
+import routes, { home } from '../routes.js';
+import Media from 'react-media'
+import FontAwesome from 'react-fontawesome';
+import './header_style.css';
+import '../common_style.css'
 
-import './header_style0.css';
+// Components
+import CollapsedMenu from './CollapsedMenu'
+import Logo from './Logo'
+import Links from './Links'
+import Hamburger from './Hamburger'
+
+import mq from '../media_queries.js'
+import { personal_name } from '../config.js'
 
 export default class Header extends Component{
+
+  constructor(props){
+    super(props);
+
+    // == Define initial state ==
+    // Don't use setState API with ES6 classes (we don't want to mutate the initial state with API call)
+    // We're manually setting state via key/value pairs.
+    this.state = {
+        showCollapsedMenu: false
+    }
+  }
+
+  toggleMenu(e){
+    e.preventDefault();
+    // Set completely new state with setState API, don't fiddle with current state
+    // that was set in the constructor
+    this.setState({ showCollapsedMenu: !this.state.showCollapsedMenu});
+  }
   render(){
+
+    const root_class = "header"
     return(
-      <div className="header">
-        <Logo/>
-        <Links/>
+      <div>
+
+        <Media query={mq.old}>
+          <div>
+            <div className={root_class}>
+              <Logo />
+              <Hamburger onClick={this.toggleMenu.bind(this)}/>
+            </div>
+            {this.state.showCollapsedMenu ? <CollapsedMenu /> : null}
+          </div>
+        </Media>
+
+        <Media query={mq.mobile}>
+          <div>
+            <div className={root_class}>
+              <Logo />
+              <Hamburger onClick={this.toggleMenu.bind(this)}/>
+            </div>
+            {this.state.showCollapsedMenu ? <CollapsedMenu /> : null}
+          </div>
+        </Media>
+
+        <Media query={mq.tablet}>
+          <div>
+            <div className={root_class}>
+              <Logo />
+              <Hamburger onClick={this.toggleMenu.bind(this)}/>
+            </div>
+            {this.state.showCollapsedMenu ? <CollapsedMenu /> : null}
+          </div>
+        </Media>
+
+        <Media query={mq.desktop}>
+          <div className={root_class}>
+            <Logo />
+            <Links />
+          </div>
+        </Media>
+
+        <Media query={mq.wide}>
+          <div className="header">
+            <Logo />
+            <Links />
+          </div>
+        </Media>
       </div>
-    );
-  }
-}
-
-class Logo extends Component{
-  render(){
-    return(
-      <a className="logo" href="/">
-          <img src={logo_image} alt="Tomislav Martinčić logo"/>
-          <span>Tomislav Martinčić</span>
-      </a>
-    )
-  }
-}
-
-class Links extends Component{
-  render(){
-    return(
-      <ul className="links">
-        <li>
-          <Link to={routes.contact} className="link" title="Contact">Contact</Link>
-        </li>
-        <li>
-          <Link to={routes.about} className="link" title="About">About</Link>
-        </li>
-        <li>
-          <Link to={routes.work} className="link" title="Work">Work</Link>
-        </li>
-      </ul>
     )
   }
 }

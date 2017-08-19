@@ -1,0 +1,27 @@
+.links{
+  /* Tell the browser we don't want right margin... */
+  margin-right: 0;
+  /* ... but instead give all the space to the left one */
+  margin-left: auto;
+}
+
+.links li{
+  padding: 0 0 0 3rem;
+  display: inline-block;
+}
+
+.links li a{
+  font-family: 'Comic-sans';
+  text-decoration: none;
+  font-size: 1em;
+  letter-spacing: 0.05rem;
+  color: #a2a2a2;
+  -webkit-transition: all .4s ease 0s;
+  -moz-transition: all .4s ease 0s;
+  -o-transition: all .4s ease 0s;
+  transition: all .4s ease 0s;
+}
+
+.links li a:hover{
+  color: #525252;
+}

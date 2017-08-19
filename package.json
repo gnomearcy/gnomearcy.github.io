@@ -4,10 +4,12 @@
   "private": true,
   "homepage": "http://gnomearcy.github.io/portofolio",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-fontawesome": "^1.6.1",
+    "react-media": "^1.6.1",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
     "react-svg": "^2.1.21"

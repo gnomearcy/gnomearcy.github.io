@@ -1,0 +1,31 @@
+/* ============================================== */
+.container_logo_initials{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  outline: 0;
+  /*width: 30%;*/
+  /* Unvisited link */
+  color: #111;
+}
+
+/* To keep link color the same, keep the following event classes in this order.
+The color must be equal to the color specified in parent class (.logo) */
+.logo:visited,
+.logo:hover,
+.logo:active{
+  color: #111;
+}
+
+.logo{
+  /* Width will automatically set the height to the same value */
+  width: 36px;
+}
+
+/* Initials */
+.initials{
+  font-family: 'Comic-sans';
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+  margin-left: 0.5rem;
+}
