@@ -1,6 +1,8 @@
 .menu_item{
-  height: 100px;
+  height: 70px;
   display: block;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .collapsed_menu_container a{
@@ -37,6 +39,6 @@
   color: black;
   /* Make it block for margins to take effect */
   display: block;
-  margin-left: 0.5em;
+  /*margin-left: 0.5em;*/
   margin-top: 0.5em;
 }

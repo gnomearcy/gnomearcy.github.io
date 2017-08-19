@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import routes from '../routes.js';
 import './collapsed_menu_style.css';
-
+import mq from '../media_queries.js';
 
 export default class CollapsedMenu extends Component{
 
@@ -19,6 +19,8 @@ export default class CollapsedMenu extends Component{
       items.push(menuItem);
     }
 
+
+    // how to implement media queries here
     return <div className="collapsed_menu_container">{items}</div>
   }
 }

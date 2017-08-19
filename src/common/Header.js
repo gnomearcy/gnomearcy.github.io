@@ -35,9 +35,9 @@ export default class Header extends Component{
     // that was set in the constructor
     this.setState({ showCollapsedMenu: !this.state.showCollapsedMenu});
   }
-  render(){
 
-    const root_class = "header"
+  render(){
+    const root_class = "header";
     return(
       <div>
 
@@ -79,7 +79,7 @@ export default class Header extends Component{
         </Media>
 
         <Media query={mq.wide}>
-          <div className="header">
+          <div className={root_class}>
             <Logo />
             <Links />
           </div>
