@@ -10,7 +10,7 @@ import About from '../about/About'
 import Contact from '../contact/Contact'
 import Tests from '../testing/Tests'
 
-import Header from '../common/Header';
+import Header from '../common/header/Header';
 import Footer from '../common/Footer'
 
 import './root_style.css'

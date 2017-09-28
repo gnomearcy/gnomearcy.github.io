@@ -1,47 +1,50 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import * as links from './social_media_links'
+
+import Media from 'react-media'
+
+import links from './social_media_links'
 import './footer_style.css'
+import mq from '../media_queries.js'
 
 // Component representing bottom part of the UI.
 // All other content components have this component as their sibling on the UI.
 const openInNewTab = "_blank";
 
-class Footer extends Component{
+export default class Footer extends Component{
   render(){
+    var amount = links.length;
+    var links_markup = [];
+    for(var i = 0; i < amount; i++){
+      var single_link =
+        <a href={links[i].link} target={openInNewTab}>
+          <FontAwesome
+            className={links[i].icon}
+            size='2x'/>
+        </a>
+
+        links_markup.push(single_link);
+    }
+
     return(
-        // Provides background and margins, centers its children
-        <div id="footer">
-            <div id="social">
-                <a href={links.facebook} target={openInNewTab}>
-                  <FontAwesome
-                    className='fa-facebook'
-                    size='2x'/></a>
-
-                  <a href={links.github} target={openInNewTab}>
-                  <FontAwesome
-                    className='fa-github'
-                    size='2x'/></a>
-
-                  <a href={links.twitter} target={openInNewTab}>
-                  <FontAwesome
-                    className='fa-twitter'
-                    size='2x'/></a>
-
-                  <a href={links.codepen} target={openInNewTab}>
-                  <FontAwesome
-                    className='fa-codepen'
-                    size='2x'/></a>
-
-                  <a href={links.linkedin} target={openInNewTab}>
-                    <FontAwesome
-                      className='fa-linkedin'
-                      size='2x'/></a>
+      <div id="footer">
+        <Media query="(max-width:349px)">
+          {matches => matches ?
+            (
+              <div id="social" style={{marginLeft: '8%', marginRight: '8%'}}>
+                {links_markup}
               </div>
-              <p id="copyright">© 2017 Tomislav Martinčić. All rights reserved.</p>
-          </div>
+            )
+           :
+           (
+              <div id="social">
+                {links_markup}
+              </div>
+           )
+        }
+        </Media>
+        <p id="copyright">© 2017 Tomislav Martinčić. All rights reserved.</p>
+      </div>
     );
   }
 }
-
-export default Footer;

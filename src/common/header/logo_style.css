@@ -27,6 +27,6 @@ The color must be equal to the color specified in parent class (.logo) */
   font-family: 'Comic-sans';
   font-size: 1.2rem;
   letter-spacing: 0.05rem;
-  margin-left: 1.7rem;
-  margin-right: 1.7rem;
+  padding-left: 1.0rem;
+  padding-right: 1.0rem;
 }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Media from 'react-media'
-import { personal_name } from '../config.js'
-import { home } from '../routes.js';
-import logo_image from '../assets/logo.png'
-import mq from '../media_queries.js'
 
+import { personal_name } from 'src/data/config.js'
+import { home } from 'src/data/routes.js';
+import logo_image from 'src/data/assets/logo.png'
+import mq from 'src/style/media_queries.js'
 import './logo_style.css'
 
 export default class Logo extends Component{

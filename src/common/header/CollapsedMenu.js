@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import routes from '../routes.js';
+
+import routes from 'src/data/routes.js';
+import mq from 'src/style/media_queries.js';
+
 import './collapsed_menu_style.css';
-import mq from '../media_queries.js';
 
 export default class CollapsedMenu extends Component{
 

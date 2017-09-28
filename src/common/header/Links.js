@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import routes from '../routes.js';
 import { Link } from 'react-router-dom';
+
+import routes from 'src/data//routes.js';
 import './links_style.css'
 
 export default class Links extends Component{

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactSVG from 'react-svg';
 import { Link } from 'react-router-dom';
-import routes, { home } from '../routes.js';
 import Media from 'react-media'
 import FontAwesome from 'react-fontawesome';
+
 import './header_style.css';
-import '../common_style.css'
+// import 'src/style/common_style.css'
 
 // Components
 import CollapsedMenu from './CollapsedMenu'
@@ -13,21 +13,23 @@ import Logo from './Logo'
 import Links from './Links'
 import Hamburger from './Hamburger'
 
-import mq from '../media_queries.js'
-import { personal_name } from '../config.js'
+import mq from 'src/style/media_queries.js'
+import { personal_name } from 'src/data/config.js'
+import routes, { home } from 'src/data/routes.js';
 
 export default class Header extends Component{
 
-  constructor(props){
-    super(props);
-
-    // == Define initial state ==
-    // Don't use setState API with ES6 classes (we don't want to mutate the initial state with API call)
-    // We're manually setting state via key/value pairs.
-    this.state = {
-        showCollapsedMenu: false
-    }
+  // == Define initial state ==
+  // Don't use setState API with ES6 classes (we don't want to mutate the initial state with API call)
+  // We're manually setting state via key/value pairs.
+  state = {
+      showCollapsedMenu: false
   }
+
+  // TODO: remove this, constructor not needed to set initial state
+  // constructor(props){
+  //   super(props);
+  // }
 
   toggleMenu(e){
     e.preventDefault();
