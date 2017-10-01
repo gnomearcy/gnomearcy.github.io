@@ -3,7 +3,8 @@ import Media from 'react-media'
 
 import { personal_name } from 'src/data/config.js'
 import { home } from 'src/data/routes.js';
-import logo_image from 'src/data/assets/logo.png'
+// import logo_image from 'src/data/assets/logo.png'
+import logo_image from 'data/assets/logo.png'
 import mq from 'src/style/media_queries.js'
 import './logo_style.css'
 

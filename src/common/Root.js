@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link, Router, Switch, Route, HashRouter } from 'react-router-dom'
-
 import Media from 'react-media'
 
 import Home from '../home/Home';
@@ -11,7 +10,7 @@ import Contact from '../contact/Contact'
 import Tests from '../testing/Tests'
 
 import Header from '../common/header/Header';
-import Footer from '../common/Footer'
+import Footer from '../common/header/Footer'
 
 import './root_style.css'
 
