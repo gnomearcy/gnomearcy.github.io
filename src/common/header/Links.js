@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Radium from 'radium'
 
-import routes from 'src/data//routes.js';
-import './links_style.css'
+import routes from '../../data/routes.js';
+import style from './links_style'
 
-export default class Links extends Component{
+class Links extends Component{
   render(){
     var links = [];
-    var nr = routes.length;
-    for(var i = 0; i < nr; i++)
+    for(var i = 0, size = routes.length; i < size; i++)
     {
       var link =
-      <li>
-        <Link to={routes[i].route} title={routes[i].visual}>{routes[i].visual}</Link>
-      </li>
+      <Link
+         style={style.link}
+         to={routes[i].route}
+         title={routes[i].visual}>
+            {routes[i].visual}
+       </Link>
       links.push(link);
     }
-    return <ul className="links">{links}</ul>
+
+    return (<div style={style.linkContainer}>{links}</div>);
   }
 }
+
+export default Radium(Links)

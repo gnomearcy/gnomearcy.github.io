@@ -4,7 +4,7 @@ import Media from 'react-media'
 
 import links from './social_media_links'
 import './footer_style.css'
-import mq from 'style/media_queries.js'
+import mq from '../style/media_queries'
 
 // Component representing bottom part of the UI.
 // All other content components have this component as their sibling on the UI.

@@ -7,6 +7,8 @@ const columnWidth = 3 * gutter;
 const mobileCols = 3;
 const desktopCols = 8;
 
+const maxCols = desktopCols;
+
 // Keys for export objects
 const nrOfCols_Key = "nrOfCols";
 const contentWidth = "contentWidth";
@@ -30,4 +32,26 @@ const schemaForExport = {
 undefinedEvaluator(schemaForExport);
 higherThanZeroEvaulator(fontSize, lineHeight, gutter, columnWidth, mobileCols, desktopCols);
 
-export default schemaForExport;
+const column = (number) => {
+    undefinedEvaluator(number);
+    if(!(typeof number === 'number')){
+      throw "argument is not a number"
+    }
+
+    let rounded = Math.round(number);
+    if(rounded <= 0 || rounded > maxCols){
+      throw `Expected a number in range <0, ${maxCols}] but got rounded`;
+    }
+
+    return rounded * columnWidth + (rounded - 1) * gutter;
+}
+
+export default {
+  contentWidthMobile: mobileCols * columnWidth + (mobileCols - 1) * gutter,
+  contentWidthDesktop: desktopCols * columnWidth + (desktopCols - 1) * gutter,
+  gutter: gutter,
+  rowHeight: lineHeight,
+  columnWidth: columnWidth,
+  col: column,
+  maxWidth: column(maxCols)
+}

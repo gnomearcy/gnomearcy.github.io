@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import './hamburger_style.css'
+import Radium from 'radium'
+import hamburger from './hamburger_style'
 
-export default class Hamburger extends Component{
-
-  render()
-  {
+class Hamburger extends Component{
+  render(){
     return(
-      <FontAwesome
-        onClick={this.props.onClick}
-        className={"fa-bars hamburger " + this.props.className}
-        size='2x'/>
+
+      // The FontAwesome tag has to be wrapped in a "div" element
+      // for media queria to successfully trigger and hide this
+      // component on mobile devices
+      <div style={hamburger.style}>
+        <FontAwesome
+          className={hamburger.icon}
+          onClick={this.props.onClick}/>
+      </div>
     );
   }
 }
+export default Radium(Hamburger)

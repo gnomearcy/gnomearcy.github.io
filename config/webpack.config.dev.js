@@ -72,75 +72,30 @@ module.exports = {
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   resolve: {
+
     // This allows you to set a fallback for where Webpack should look for modules.
     // We placed these paths second because we want `node_modules` to "win"
     // if there are any conflicts. This matches Node resolution mechanism.
-    // https://github.com/facebookincubator/create-react-app/issues/253
-
-      /* SAFE KEEPING BEFORE:
-        https://moduscreate.com/es6-es2015-import-no-relative-path-webpack/   */
-     /*modules: ['node_modules', paths.appNodeModules].concat(
-       // It is guaranteed to exist because we tweak it in `env.js`
-       process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-     ),*/
-
-     // DOES NOT WORK - npm start says:
-     /*
-         Failed to compile.
-         Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
-         - configuration.resolve.modules[0] should be a string.
-     */
-    // modules: [
-    //   ['node_modules', paths.appNodeModules].concat(
-    //     // It is guaranteed to exist because we tweak it in `env.js`
-    //     process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    //   ),
-    //   path.resolve('./src'),
-    //   path.resolve('./node_modules')
-    // ],
-
-    // modules: [
-    //     path.resolve('./src'),
-    //     path.resolve('./node_modules'),
-    //     'node_modules',
-    //     paths.appNodeModules
-    //   ].concat(
-    //     // It is guaranteed to exist because we tweak it in `env.js`
-    //     process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    //   ),
-    // modules:[
-    //   path.resolve('./src'),
-    //   // This has to be last for Node modules
-    //   "./node_modules"
-    // ],
-
-    modules: ['node_modules', paths.appNodeModules].concat(
-      // It is guaranteed to exist because we tweak it in `env.js`
+    modules: [
+      // resolve.root has been removed, add this NodeJS global variable
+      // to a list of modules
+      // __dirname,
+      // 'src'
+      path.resolve(__dirname, "src"),
+      'node_modules'
+      // paths.appNodeModules
+    ].concat(
+      // It is/guaranteed to exist because we tweak it in `env.js`
       process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
     ),
-
-    // These are the reasonable defaults supported by the Node ecosystem.
-    // We also include JSX as a common component filename extension to support
-    // some tools, although we do not recommend using it, see:
-    // https://github.com/facebookincubator/create-react-app/issues/290
-    // `web` extension prefixes have been added for better support
-    // for React Native Web.
     extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-        assets: 'src/data/assets',
-        data: 'src/data',
-        style: 'src/style'
-      // // Support React Native Web
-      // // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      // 'react-native': 'react-native-web',
+      // Can't get this to work...
+      //  media_queries$ : '../src/style/media_queries.js',
+      //  routes$: '..src/data/routes.js'
     },
     plugins: [
-      // Prevents users from importing files from outside of src/ (or node_modules/).
-      // This often causes confusion because we only process files within src/ with babel.
-      // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
-      // please link the files into your node_modules/ and let module-resolution kick in.
-      // Make sure your source files are compiled, as they will not be processed in any way.
-      new ModuleScopePlugin(paths.appSrc),
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
   },
   module: {
@@ -159,7 +114,7 @@ module.exports = {
           {
             options: {
               formatter: eslintFormatter,
-
+              eslintPath: require.resolve('eslint'),
             },
             loader: require.resolve('eslint-loader'),
           },

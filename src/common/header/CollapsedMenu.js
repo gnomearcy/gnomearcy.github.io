@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
+import Radium from 'radium'
 
-import routes from 'data/routes.js';
-import mq from 'style/media_queries.js';
+// import './collapsed_menu_style.css';
+import style from './collapsed_menu_style'
+import routes from '../../data/routes'
 
-import './collapsed_menu_style.css';
+class CollapsedMenu extends Component{
 
-export default class CollapsedMenu extends Component{
-
-  render(){
+  render() {
     var items = [];
-    var nr = routes.length;
-    for(var i = 0; i < nr; i++)
+    for(var i = 0, size = routes.length; i < size; i++)
     {
       var menuItem =
-      <a className="menu_item" href={routes[i].route}>
-          <FontAwesome className={"menu_item_icon " + routes[i].icon }/>
-          <span>{routes[i].visual}</span>
-      </a>
+        <a
+          style={style.menuItem}
+          href={routes[i].route}>
+            <FontAwesome
+               style={style.icon}
+               size={style.icon.size}
+               className={routes[i].icon}/>
+            <span>{routes[i].visual}</span>
+        </a>
+
       items.push(menuItem);
     }
 
 
     // how to implement media queries here
-    return <div className="collapsed_menu_container">{items}</div>
+    return <div style={style.container}>{items}</div>
   }
 }
+
+export default Radium(CollapsedMenu)
