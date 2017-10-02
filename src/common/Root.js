@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link, Router, Switch, Route, HashRouter } from 'react-router-dom'
 import Media from 'react-media'
+import {StyleRoot} from 'radium'
 
 import Home from '../home/Home';
 import Work from '../work/Work';
@@ -10,10 +11,24 @@ import Contact from '../contact/Contact'
 import Tests from '../testing/Tests'
 
 import Header from '../common/header/Header';
-import Footer from '../common/header/Footer'
+import Footer from '../common/Footer'
 
 import './root_style.css'
+import mq from '../style/media_queries'
+import grid from '../style/grid'
 
+// TODO: maybe move this to separate file?
+const style = {
+   width: grid.col(3),
+
+   // Both margins will center the content horizontally
+   marginLeft: "auto",
+   marginRight: "auto",
+
+   [mq.desktop]: {
+     width: grid.maxWidth
+   }
+}
 // This is the wrapper for navigation in header section and the content section
 // It is the root component being rendered via the ReactDOM.render() method.
 // It hosts the Router tag (either HashRouter, MemoryRouter or BrowserRouter) as it's root
@@ -21,13 +36,15 @@ import './root_style.css'
 class Root extends Component {
   render(){
     return(
-      <HashRouter>
-        <div>
-          <Header />
-          <Content />
-          <Footer />
-        </div>
-      </HashRouter>
+      <StyleRoot>
+        <HashRouter>
+          <div style={style}>
+            <Header />
+            <Content />
+            <Footer />
+          </div>
+        </HashRouter>
+      </StyleRoot>
     );
   }
 }
