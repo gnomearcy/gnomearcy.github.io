@@ -25,27 +25,47 @@ class Header extends Component{
   // == Define initial state ==
   // Don't use setState API with ES6 classes (we don't want to mutate the initial state with API call)
   // We're manually setting state via key/value pairs.
-  state = {
-      showCollapsedMenu: false,
+  // state = {
+  //     showCollapsedMenu: false
+  // }
+
+  constructor(props){
+    super(props);
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.state = {
+      showCollapsedMenu: false
+    }
   }
 
   toggleMenu(e){
     e.preventDefault();
     // Set completely new state with setState API, don't fiddle with current state
     // that was set in the constructor
-    this.setState({ showCollapsedMenu: !this.state.showCollapsedMenu});
+    // this.setState({ showCollapsedMenu: !this.state.showCollapsedMenu});
+    // TODO: remove this
+    console.log(this);
+    this.setState((prevState, props) => {
+      return {showCollapsedMenu: !prevState.showCollapsedMenu};
+    });
   }
 
   render(){
 
     return(
-      <div style={{textAlign : 'center'}}>
+      <div>
         <div style={headerStyle}>
           <Logo />
           <Links />
-          <Hamburger />
+          <Hamburger onClick={this.toggleMenu}/>
         </div>
-        <CollapsedMenu />
+
+        // TODO: add open/close animation
+        // TODO find a way how to close this menu when media query changes to desktop
+        {
+          this.state.showCollapsedMenu ?
+          <CollapsedMenu />
+          : null
+        }
       </div>
     )
   }

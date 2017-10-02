@@ -41,7 +41,7 @@ const undefinedEvaluator = (p) => {
 function higherThanZeroEvaulator(p) {
     throwIfUndef(arguments);
     // Single argument - check if it's array of numbers or single number
-    if(arguments.length == 1){
+    if(arguments.length === 1){
       let first = arguments[0];
       // No need to explicitly check for 'undefined' on first argument,
       // that is taken care of by accessing the constructor

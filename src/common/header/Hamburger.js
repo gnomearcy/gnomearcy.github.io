@@ -5,8 +5,9 @@ import hamburger from './hamburger_style'
 
 class Hamburger extends Component{
   render(){
+    console.log("printam propove @@@@@@@@@@");
+  console.log(this.props);
     return(
-
       // The FontAwesome tag has to be wrapped in a "div" element
       // for media queria to successfully trigger and hide this
       // component on mobile devices
