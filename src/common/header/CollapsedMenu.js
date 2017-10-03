@@ -5,6 +5,7 @@ import Radium from 'radium'
 // import './collapsed_menu_style.css';
 import style from './collapsed_menu_style'
 import routes from '../../data/routes'
+import HorizontalCenter from '../HorizontalCenter'
 
 class CollapsedMenu extends Component{
 
@@ -23,7 +24,6 @@ class CollapsedMenu extends Component{
          href={routes[i].route}>
         <div style={style.icon.container}>
           <FontAwesome
-             style={style.icon}
              size={style.icon.size}
              className={routes[i].icon}/>
         </div>
@@ -36,12 +36,12 @@ class CollapsedMenu extends Component{
       items.push(menuItem);
     }
 
-
-    // how to implement media queries here
-    return <div style={style.menu}>{items}</div>
+    return (
+      <HorizontalCenter>
+        <div style={style.menu}>{items}</div>
+      </HorizontalCenter>
+    )
   }
 }
 
 export default Radium(CollapsedMenu)
-// size={style.icon.size}
-// key={`key${i}`}

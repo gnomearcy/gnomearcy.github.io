@@ -2,23 +2,17 @@ import routes from '../../data/routes';
 import mq from '../../style/media_queries';
 import grid from '../../style/grid'
 import headerLogo from './logo_style.js'
+import fontAwesomeSizeConverter from '../../util/font_awesome'
 
 const iconSize = 32;
 const menuItemHeight = 70;
 const linkColor = "#111";
 
-const fontAwesomeSizeConverter = () => {
-  if(iconSize % 16 !== 0){
-    throw "iconSize has to me a multiple of 16";
-  }
-  // Formats the return value in "?x" format, where ? is computed value
-  return `${iconSize / 16}x`;
-}
-
 export default {
 
   menu: {
     width: grid.col(3),
+    display: "inline-block",
 
     [mq.desktop]:{
       display: "none"
@@ -29,7 +23,7 @@ export default {
     textTransform: "uppercase",
     height: menuItemHeight,
     textDecoration: "none",
-    display: "block",
+    display: "-webkit-box",
 
     label: {
       paddingLeft: headerLogo.initials.paddingLeft,
@@ -57,6 +51,6 @@ export default {
       textAlign: "center",
       marginTop: (menuItemHeight - headerLogo.logo.width) / 2
     },
-    size: fontAwesomeSizeConverter()
+    size: fontAwesomeSizeConverter(iconSize)
   },
 }
