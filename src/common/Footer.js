@@ -20,10 +20,16 @@ export default class Footer extends Component{
     var links_markup = [];
     for(var i = 0, amount = links.length; i < amount; i++){
 
+      let finalStyle = {...footerStyle.icon.container}
+      if(i !== 0){
+        // Add margin to all icons except first to create horizontal whitespace
+        finalStyle = {...finalStyle,...{marginLeft: footerStyle.icon.horizontalSpacing}}
+      }
+
       var single_link =
         <a
           key={i}
-          style={footerStyle.icon.container}
+          style={finalStyle}
           href={links[i].link}
           target={openInNewTab}>
           <FontAwesome

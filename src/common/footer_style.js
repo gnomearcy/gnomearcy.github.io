@@ -11,6 +11,9 @@ export default {
   display: "inline-block",
 
   icon: {
+    // Global measurements
+    horizontalSpacing : "10px",
+
     container: {
       width: "36px",
       height: "36px",
@@ -18,17 +21,17 @@ export default {
       textAlign: "center",
       backgroundColor: "white",
       borderRadius: "50%",
-      display: "inline-block"
+      display: "inline-block",
     },
+
+    // TODO: Add hover pseudoelements
     color: "black",
     lineHeight: "36px",
     height: "36px",
     fontSize: "24px",
-
     // Overriding "display" property of ".fa" FontAwesome class
     display: "inline-block",
 
-    // TODO: Add hover pseudoelements
   },
 
   initials : {
