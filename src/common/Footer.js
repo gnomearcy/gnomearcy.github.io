@@ -16,29 +16,36 @@ const openInNewTab = "_blank";
 
 export default class Footer extends Component{
   render(){
+
     var links_markup = [];
     for(var i = 0, amount = links.length; i < amount; i++){
+
       var single_link =
         <a
+          key={i}
           style={footerStyle.icon.container}
           href={links[i].link}
           target={openInNewTab}>
           <FontAwesome
-            className={links[i].icon}
-            size='2x'/>
+            style={footerStyle.icon}
+            className={links[i].icon}/>
         </a>
 
         links_markup.push(single_link);
     }
 
-    const label = `${strings.initials}. ${strings.copyright}`;
 
+    const label = `${strings.initials}. ${strings.copyright}`;
     return(
       <HorizontalCenter style={footerStyle.underlay}>
           <HorizontalCenter style={footerStyle}>
-              <Aligner style={{border: "2px solid black", backgroundColor: "yellow"}}>
-                  <div> Align me 1</div>
-                  <div> Align me 2</div>
+              <Aligner>
+                  <div>
+                    {links_markup}
+                  </div>
+                  <div style={footerStyle.initials.container}>
+                    <span style={footerStyle.initials}>{label}</span>
+                  </div>
               </Aligner>
           </HorizontalCenter>
       </HorizontalCenter>

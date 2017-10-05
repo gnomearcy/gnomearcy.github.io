@@ -4,25 +4,32 @@ export const twitter = "http://www.twitter.com/gnomearcy"
 export const codepen = "http://www.codepen/gnomearceh";
 export const linkedin = "http://www.linkedin.com/in/tomislav-martincic"
 
+const hoverColor = "hoverColor";
+
 export default [
   {
     link: facebook,
-    icon: "fa-facebook"
+    icon: "fa-facebook",
+    [hoverColor]: "#3b5998"
   },
   {
     link: github,
-    icon: "fa-github"
+    icon: "fa-github",
+    [hoverColor]: "#040204"
   },
   {
     link: twitter,
-    icon: "fa-twitter"
+    icon: "fa-twitter",
+    [hoverColor]: "#00B6F1"
   },
   {
     link: codepen,
-    icon: "fa-codepen"
+    icon: "fa-codepen",
+    [hoverColor]: "#212121"
   },
   {
     link: linkedin,
-    icon: "fa-linkedin"
+    icon: "fa-linkedin",
+    [hoverColor]: "#04669A"
   }
 ]

@@ -19,6 +19,7 @@ class CollapsedMenu extends Component{
     var items = [];
     for(var i = 0, size = routes.length; i < size; i++)
     {
+      console.log(style.item.label);
       var menuItem =
       <a style={style.item}
          href={routes[i].route}>
