@@ -5,8 +5,6 @@ import Media from 'react-media'
 import FontAwesome from 'react-fontawesome';
 import Radium from 'radium'
 
-import './header_style.css';
-
 // Components
 import CollapsedMenu from './CollapsedMenu'
 import Logo from './Logo'
