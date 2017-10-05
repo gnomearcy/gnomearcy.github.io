@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Media from 'react-media'
 
-import links from './social_media_links'
-import './footer_style.css'
+import links from '../data/social_media_links'
 import mq from '../style/media_queries'
+import footerStyle from './footer_style'
+import HorizontalCenter from './HorizontalCenter'
+import strings from '../data/strings'
+import CenterTextBlock from './CenterTextBlock'
+import Aligner from './Aligner'
 
 // Component representing bottom part of the UI.
 // All other content components have this component as their sibling on the UI.
@@ -12,11 +16,13 @@ const openInNewTab = "_blank";
 
 export default class Footer extends Component{
   render(){
-    var amount = links.length;
     var links_markup = [];
-    for(var i = 0; i < amount; i++){
+    for(var i = 0, amount = links.length; i < amount; i++){
       var single_link =
-        <a href={links[i].link} target={openInNewTab}>
+        <a
+          style={footerStyle.icon.container}
+          href={links[i].link}
+          target={openInNewTab}>
           <FontAwesome
             className={links[i].icon}
             size='2x'/>
@@ -25,25 +31,17 @@ export default class Footer extends Component{
         links_markup.push(single_link);
     }
 
+    const label = `${strings.initials}. ${strings.copyright}`;
+
     return(
-      <div id="footer">
-        <Media query="(max-width:349px)">
-          {matches => matches ?
-            (
-              <div id="social" style={{marginLeft: '8%', marginRight: '8%'}}>
-                {links_markup}
-              </div>
-            )
-           :
-           (
-              <div id="social">
-                {links_markup}
-              </div>
-           )
-        }
-        </Media>
-        <p id="copyright">© 2017 Tomislav Martinčić. All rights reserved.</p>
-      </div>
+      <HorizontalCenter style={footerStyle.underlay}>
+          <HorizontalCenter style={footerStyle}>
+              <Aligner style={{border: "2px solid black", backgroundColor: "yellow"}}>
+                  <div> Align me 1</div>
+                  <div> Align me 2</div>
+              </Aligner>
+          </HorizontalCenter>
+      </HorizontalCenter>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Root from './common/Root';
+import LayoutRoot from './common/LayoutRoot';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 // import Home from './home/Home';
@@ -13,6 +13,6 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 // Entry point of the application. This is the place to configure page loading.
 // Render the first component
 
-ReactDOM.render(<Root/>, document.getElementById('root'));
+ReactDOM.render(<LayoutRoot/>, document.getElementById('root'));
 
 // Place any other configurations here.
