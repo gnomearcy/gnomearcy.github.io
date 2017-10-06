@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './work.css';
-import { about } from '../Constants';
 import About from '../about/About';
+import './style.css';
 
 class Button extends Component{
 
@@ -15,13 +14,9 @@ class Button extends Component{
 
   render(){
     return(
-        <button label="Go to About section" onClick={this.handleClick}>Go to about section</button>
+        <button />
     );
   };
-
-  handleClick(){
-    window.alert(about);
-  }
 }
 
 class Work extends Component{
