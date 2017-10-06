@@ -9,6 +9,7 @@ import Work from '../work/Work';
 import About from '../about/About'
 import Contact from '../contact/Contact'
 import Tests from '../testing/Tests'
+import DebugGrid from '../common/DebugGrid'
 
 import Header from '../common/header/Header';
 import Footer from '../common/Footer'
@@ -36,22 +37,43 @@ class LayoutRoot extends Component {
       position: "absolute",
 
     }
+
     return(
       <StyleRoot>
         <HashRouter>
           <div>
-            <div>
-              <Header style={stackedHeaderStyle}/>
-              <Content />
-            </div>
-            <Footer />
+                <DebugGrid style={{zIndex: 999}}/>
           </div>
         </HashRouter>
       </StyleRoot>
     );
+    // return(
+    //   <StyleRoot>
+    //     <HashRouter>
+    //       <div>
+    //         <Header />
+    //         <div>
+    //           <div>
+    //             <DebugGrid style={{zIndex: 999}}/>
+    //             // <Content />
+    //           </div>
+    //           <Footer />
+    //         </div>
+    //       </div>
+    //     </HashRouter>
+    //   </StyleRoot>
+    // );
   }
 }
 
+
+// <div>
+//   <div>
+//     <Header style={stackedHeaderStyle}/>
+//     <Content />
+//   </div>
+//   <Footer />
+// </div>
 class Content extends Component {
 
   componentDidMount(){

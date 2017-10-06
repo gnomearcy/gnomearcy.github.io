@@ -53,5 +53,18 @@ export default {
   rowHeight: lineHeight,
   columnWidth: columnWidth,
   col: column,
-  maxWidth: column(maxCols)
+
+  /*
+    Refactor into this:
+    maxWidth:{
+      desktop: column(desktopCols),
+      mobile: column(mobileCols)
+    }
+  */
+  maxWidth: column(maxCols),
+
+  colNr: {
+    mobile: mobileCols,
+    desktop: desktopCols
+  }
 }
