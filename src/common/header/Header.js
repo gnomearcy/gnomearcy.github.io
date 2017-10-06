@@ -44,7 +44,7 @@ class Header extends Component{
   render(){
     return(
 
-      <div>
+      <div style={this.props.style}>
         <HorizontalCenter style={headerStyle.underlay}>
           <div style={headerStyle}>
             <Logo />

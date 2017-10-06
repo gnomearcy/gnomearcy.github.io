@@ -18,13 +18,32 @@ import Footer from '../common/Footer'
 // It hosts the Router tag (either HashRouter, MemoryRouter or BrowserRouter) as it's root
 // to provide context for all the Link and/or Route children that are being wrapped.
 class LayoutRoot extends Component {
+
+  componentDidMount(){
+    console.log("Parents");
+      console.log(document.body);
+      document.body.style["margin"] = "0px";
+      document.body.style["padding"] = "0px";
+      document.body.style["width"] = "100%";
+      document.body.style["height"] = "100%";
+      document.body.style["position"] = "absolute";
+  }
+
   render(){
+    const stackedHeaderStyle = {
+      zIndex: 10,
+      width: "100%",
+      position: "absolute",
+
+    }
     return(
       <StyleRoot>
         <HashRouter>
           <div>
-            <Header />
-            <Content />
+            <div>
+              <Header style={stackedHeaderStyle}/>
+              <Content />
+            </div>
             <Footer />
           </div>
         </HashRouter>
@@ -34,6 +53,11 @@ class LayoutRoot extends Component {
 }
 
 class Content extends Component {
+
+  componentDidMount(){
+    console.log("BODY");
+    console.log(document.body);
+  }
   render(){
     return(
       <div>

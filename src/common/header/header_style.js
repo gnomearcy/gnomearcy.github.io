@@ -16,7 +16,7 @@ export default {
     // Basically a div that provides background for the header but spans
     // the entire width of the viewport as per design.
     underlay: {
-      backgroundColor: "#ccc",
+      backgroundColor: "rgba(204,204,204,0.8)",
       height: headerHeight
     }
 }
