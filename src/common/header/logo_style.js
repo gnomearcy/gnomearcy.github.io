@@ -21,6 +21,8 @@ export default {
       textDecoration: 'none',
       outline: 0,
       color: textColor,
+      top: "50%",
+      transform: "translateY(-50%)",
 
       // Vertical alignment in container
       position: "absolute",

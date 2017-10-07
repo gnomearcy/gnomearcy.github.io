@@ -12,6 +12,7 @@ class Links extends Component{
     {
       var link =
       <Link
+         key={i}
          style={style.link}
          to={routes[i].route}
          title={routes[i].visual}>

@@ -9,10 +9,11 @@ export default {
       linkContainer: {
         display: "none",
         [mq.desktop]: {
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-end",
-          height: headerDims.height
+          display: "inline-block",
+          position: "absolute",
+          right: 0,
+          top: "50%",
+          transform: "translateY(-50%)"
         }
       },
 
@@ -22,7 +23,8 @@ export default {
         textDecoration: 'none',
         fontSize: fontSize,
         letterSpacing: '0.05rem',
-        color: '#a2a2a2',
-        transition: 'all .4s ease 0s'
+        color: '#000',
+        transition: 'all .4s ease 0s',
+        textTransform: "uppercase"
       }
 }

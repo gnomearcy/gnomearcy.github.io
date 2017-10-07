@@ -44,14 +44,14 @@ class Header extends Component{
   render(){
     return(
 
-      <div style={this.props.style}>
-        <HorizontalCenter style={headerStyle.underlay}>
-          <div style={headerStyle}>
-            <Logo />
-            <Links />
-            <Hamburger onClick={this.toggleMenu}/>
-          </div>
-        </HorizontalCenter>
+
+
+      <div style={headerStyle.root}>
+        <div style={headerStyle.header}>
+          <Logo />
+          <Links />
+          <Hamburger onClick={this.toggleMenu}/>
+        </div>
         {
           this.state.showCollapsedMenu ?
           <CollapsedMenu />
@@ -63,3 +63,18 @@ class Header extends Component{
 }
 
 export default Radium(Header)
+
+// <div style={this.props.style}>
+//   <HorizontalCenter style={headerStyle.underlay}>
+//     <div style={headerStyle}>
+//       <Logo />
+//       <Links />
+//       <Hamburger onClick={this.toggleMenu}/>
+//     </div>
+//   </HorizontalCenter>
+//   {
+//     this.state.showCollapsedMenu ?
+//     <CollapsedMenu />
+//     : null
+//   }
+// </div>

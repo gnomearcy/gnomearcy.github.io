@@ -38,9 +38,9 @@ class CollapsedMenu extends Component{
     }
 
     return (
-      <HorizontalCenter>
+      <div style={style.container}>
         <div style={style.menu}>{items}</div>
-      </HorizontalCenter>
+      </div>
     )
   }
 }
