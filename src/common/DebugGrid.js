@@ -26,7 +26,7 @@ const columnStyle = {
 
 const rowStyle = {
   container:{
-      position: "fixed",
+      position: "absolute",
       width: "100%"
   },
 

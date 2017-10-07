@@ -42,44 +42,23 @@ class LayoutRoot extends Component {
       <StyleRoot>
         <HashRouter>
           <div>
-                <DebugGrid style={{zIndex: 999}}/>
+            <Header/>
+            <div>
+              <DebugGrid style={{zIndex: 999}}/>
+              <div>
+                <Content />
+                <Footer />
+              </div>
+            </div>
           </div>
         </HashRouter>
       </StyleRoot>
     );
-    // return(
-    //   <StyleRoot>
-    //     <HashRouter>
-    //       <div>
-    //         <Header />
-    //         <div>
-    //           <div>
-    //             <DebugGrid style={{zIndex: 999}}/>
-    //             // <Content />
-    //           </div>
-    //           <Footer />
-    //         </div>
-    //       </div>
-    //     </HashRouter>
-    //   </StyleRoot>
-    // );
   }
 }
 
-
-// <div>
-//   <div>
-//     <Header style={stackedHeaderStyle}/>
-//     <Content />
-//   </div>
-//   <Footer />
-// </div>
 class Content extends Component {
 
-  componentDidMount(){
-    console.log("BODY");
-    console.log(document.body);
-  }
   render(){
     return(
       <div>
