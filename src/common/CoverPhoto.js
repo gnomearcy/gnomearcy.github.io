@@ -102,6 +102,8 @@ function propCreator() {
       }
 
       case 2: {
+        console.log("case 2");
+
         let desktop_path = args[0];
         checkUndefinedTypeAndEmpty(desktop_path);
         let mobile_path = args[1];
@@ -110,7 +112,7 @@ function propCreator() {
           filtered_mobile_path = undefined
         }
         // Is a string and is not empty
-        else if(typeof mobile_path === String && mobile_path.length > 0){
+        else if(typeof mobile_path === 'string' && mobile_path.length > 0){
           filtered_mobile_path = mobile_path;
         }
         else{
