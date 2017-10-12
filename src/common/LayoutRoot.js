@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link, Router, Switch, Route, HashRouter } from 'react-router-dom'
 import Media from 'react-media'
-import {StyleRoot} from 'radium'
+import Radium, {StyleRoot} from 'radium'
 
 import Home from '../home/Home';
 import Work from '../work/Work';
@@ -31,20 +31,13 @@ class LayoutRoot extends Component {
   }
 
   render(){
-    const stackedHeaderStyle = {
-      zIndex: 10,
-      width: "100%",
-      position: "absolute",
-
-    }
-
     return(
       <StyleRoot>
         <HashRouter>
           <div>
             <Header/>
             <div>
-              <DebugGrid style={{zIndex: 999}}/>
+              <DebugGrid />
               <div>
                 <Content />
                 <Footer />
@@ -73,4 +66,4 @@ class Content extends Component {
 }
 
 // Only export the Root (wrapper) for usage outside of this file.
-export default LayoutRoot;
+export default Radium(LayoutRoot);

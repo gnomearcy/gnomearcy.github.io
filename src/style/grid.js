@@ -40,10 +40,22 @@ const column = (number) => {
 
     let rounded = Math.round(number);
     if(rounded <= 0 || rounded > maxCols){
-      throw `Expected a number in range <0, ${maxCols}] but got rounded`;
+      throw `Expected a number in range <0, ${maxCols}] but got rounded or undefined`;
     }
 
     return rounded * columnWidth + (rounded - 1) * gutter;
+}
+
+const row = (number) => {
+  undefinedEvaluator(number);
+  if(!(typeof number === 'number')){
+    throw "argument is not a number"
+  }
+  let rounded = Math.round(number);
+  if(rounded <= 0){
+    throw "Expected a non-zero positive arg or arg is undefined"
+  }
+  return rounded * lineHeight;
 }
 
 export default {
@@ -53,6 +65,7 @@ export default {
   rowHeight: lineHeight,
   columnWidth: columnWidth,
   col: column,
+  row: row,
 
   /*
     Refactor into this:
@@ -62,9 +75,11 @@ export default {
     }
   */
   maxWidth: column(maxCols),
+  maxWidthMobile: column(mobileCols),
 
   colNr: {
     mobile: mobileCols,
     desktop: desktopCols
   }
+
 }

@@ -16,6 +16,8 @@ const style={
 
 class Content extends React.Component{
   render() {
+    console.log("Rendering Content");
+    console.log(this.props.style);
     return (
       <div style={style}>
         {this.props.children}
@@ -25,3 +27,5 @@ class Content extends React.Component{
 }
 
 export default Radium(Content)
+// For injecting styles
+// <div style={{...style, ...this.props.style}}>

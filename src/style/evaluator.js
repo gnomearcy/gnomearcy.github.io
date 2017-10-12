@@ -15,6 +15,7 @@ const undefinedEvaluator = (p) => {
    throwIfUndef(p);
    for(var propertyName in p){
      if(p.hasOwnProperty(propertyName)){
+       console.log(p);
        let value = p[propertyName];
        if(typeof value === 'undefined'){
          throw "Property " + propertyName + " is undefined";
@@ -25,6 +26,7 @@ const undefinedEvaluator = (p) => {
        }
      }
    }
+   return p;
 }
 
 // Checks a single number or array for any numbers that are less than 0.
@@ -68,5 +70,6 @@ function higherThanZeroEvaulator(p) {
 
 export {
   undefinedEvaluator,
-  higherThanZeroEvaulator
+  higherThanZeroEvaulator,
+  throwIfUndef
 };

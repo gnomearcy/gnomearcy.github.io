@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import grid from '../style/grid'
 import MediaQuery from 'react-responsive'
 import mq from '../style/media_queries'
+import Radium from 'radium'
+
 
 const gutterStyle = {
   width: grid.gutter,
@@ -125,6 +127,4 @@ class DebugGrid extends React.Component {
      </div>)
   }
 }
-export default DebugGrid;
-
-//
+export default Radium(DebugGrid);

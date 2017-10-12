@@ -57,7 +57,7 @@ image: {
   display: "block",
   // background: `url(${homeCoverPhoto}) no-repeat center center fixed`
   backgroundSize: "cover",
-  backgroundImage: `url(${mobilePhoto})`,
+  // backgroundImage: `url(${mobilePhoto})`,
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center top",
 

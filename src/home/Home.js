@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import CoverPhoto from '../common/CoverPhoto'
+import ProfilePicture from '../common/ProfilePicture'
+import Content from '../common/Content'
+import {propCreator} from '../common/CoverPhoto'
+import deskopPhoto from '../data/assets/home_cover_2.jpg'
+import mobilePhoto from '../data/assets/home_cover_mobile.jpg'
 
 class Home extends Component{
   render(){
+    console.log("Home render");
+    console.log(deskopPhoto);
+    console.log(mobilePhoto);
     return(
       <div>
-        <CoverPhoto underHeader={true}/>
-        <div style={{height: "200px", backgroundColor: "#eee", textAlign: "center", lineHeight: "200px", width: "100%"}}>
-            In production, stay tuned!
-        </div>
+        <CoverPhoto {...propCreator(deskopPhoto, mobilePhoto)}/>
+        <div> Home sweet home </div>
       </div>
     );
   };

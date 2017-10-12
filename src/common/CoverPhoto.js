@@ -75,9 +75,6 @@ function propCreator() {
     }
 
     const checkUndefinedTypeAndEmpty = (a) => {
-
-      console.log("checkined undefined type empty");
-      console.log(a);
       if(a === undefined){
         throw "undefined argument"
       }
@@ -93,8 +90,6 @@ function propCreator() {
     switch(args.length){
       case 1: {
         let desktop_path = args[0];
-        console.log("case 1");
-        console.log(desktop_path);
         checkUndefinedTypeAndEmpty(desktop_path)
         return {
           [desktop_image_path] : desktop_path
@@ -102,8 +97,6 @@ function propCreator() {
       }
 
       case 2: {
-        console.log("case 2");
-
         let desktop_path = args[0];
         checkUndefinedTypeAndEmpty(desktop_path);
         let mobile_path = args[1];

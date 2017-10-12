@@ -9,8 +9,9 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 // import Contact from './contact/Contact'
 // import { Link, Router, Switch, Route, HashRouter } from 'react-router-dom'
 
+import Tests from './testing/Tests'
+// ReactDOM.render(<Tests/>, document.getElementById('root'));
 
-// Entry point of the application. This is the place to configure page loading.
 // Render the first component
 ReactDOM.render(<LayoutRoot/>, document.getElementById('root'));
 

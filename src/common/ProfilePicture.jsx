@@ -5,6 +5,7 @@ import grid from '../style/grid'
 import Content from './Content'
 import typo from '../style/typefaces'
 import {throwIfUndef} from '../style/evaluator'
+import RequireProps from 'react-require-props'
 
 class ProfilePicture extends React.Component{
 
@@ -26,7 +27,9 @@ class ProfilePicture extends React.Component{
             <div style={style.profilePicture.innerCircle}></div>
           </div>
           {
-            this.props.hasTitle
+            ( this.props.title !== undefined
+              && typeof this.props.title === 'string'
+              && this.props.title.length > 0)
             ?
             <span style={style.title}>
                 {this.props.title}
