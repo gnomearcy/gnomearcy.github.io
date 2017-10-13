@@ -107,6 +107,7 @@ export default {
         backgroundColor: "#ccc",
         color: "#333",
 
+        textDecoration: "none",
         // display: "inline-block",
         float: "right",
 
@@ -140,6 +141,8 @@ export default {
         backgroundColor: "#ccc",
         color: "#333",
         display: "inline-block",
+
+        textDecoration: "none",
 
         // Disable text highlighting
         userSelect: "none",

@@ -15,6 +15,15 @@ import mq from '../style/media_queries'
 
 class Home extends Component{
 
+  constructor(props){
+    super(props);
+    this.goToContact = this.goToContact.bind(this);
+  }
+
+  goToContact(){
+    window.alert("hello")
+  }
+
   componentDidMount() {
     window.scrollTo(0,0);
   }
@@ -52,20 +61,22 @@ class Home extends Component{
                 ...or get directly in touch by
             </span>
             <Media query={mq.desktop_query}>
-              <span
+              <a
                 key="contact_btn_desktop"
                 id="button_desktop"
-                style={style.contact.button_desktop}>
+                style={style.contact.button_desktop}
+                href="#/contact">
                 Sending me a message
-              </span>
+              </a>
             </Media>
             <Media query={mq.mobile_query}>
-              <span
+              <a
                 key="contact_btn_mobile"
                 id="button_mobile"
-                style={style.contact.button_mobile}>
+                style={style.contact.button_mobile}
+                href="#/contact">
                 Sending me a message
-              </span>
+              </a>
             </Media>
           </div>
 
