@@ -12,6 +12,10 @@ import Radium from 'radium'
 
 class Work extends Component{
 
+  componentDidMount(){
+    window.scrollTo(0,0);
+  }
+  
   render(){
     const secs = sections.map((section_data, index) => {
       return <Section key={`section${index}`} data={section_data}/>

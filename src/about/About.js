@@ -7,10 +7,12 @@ import {skills, experience, education} from './data/ContentProvider'
 import AboutCoverPhoto from '../data/assets/about_cover.jpg'
 
 class About extends Component{
-  render(){
 
-    console.log("assig in");
-    console.log(AboutCoverPhoto);
+  componentDidMount(){
+    window.scrollTo(0,0);
+  }
+  
+  render(){
     return (
       <div>
         <CoverPhoto {...propCreator(AboutCoverPhoto)}/>
