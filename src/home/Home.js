@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import Media from 'react-media'
+import Radium from 'radium'
+
 import CoverPhoto from '../common/CoverPhoto'
 import ProfilePicture from '../common/ProfilePicture'
 import Content from '../common/Content'
 import {propCreator} from '../common/CoverPhoto'
 import deskopPhoto from '../data/assets/home_cover_2.jpg'
 import mobilePhoto from '../data/assets/home_cover_mobile.jpg'
-import Radium from 'radium'
 import ProjectGroup from './project_group/ProjectGroup'
 import data from './data/project_showcase'
 import style from './home_style'
-import Media from 'react-media'
 import mq from '../style/media_queries'
 
 class Home extends Component{

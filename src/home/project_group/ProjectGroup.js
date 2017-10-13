@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Radium from 'radium'
-import model from './model'
 import Media from 'react-media'
+import Radium from 'radium'
+import PropTypes from 'prop-types'
+
+import model from './model'
 import mq from '../../style/media_queries'
 import Content from '../../common/Content'
 import grid from '../../style/grid'
-import PropTypes from 'prop-types'
 
 const border = 1;
 
