@@ -204,9 +204,7 @@ export default {
           width: form.desktop.width
                 - 2 * input_border
                 - 2 * input_padding,
-          paddingLeft: input_padding,
-          paddingRight: input_padding,
-          paddingTop: input_padding,
+          padding: input_padding,
           marginBottom: grid.row(1),
           minHeight: grid.row(6) - 2 * input_padding,
           height: grid.row(12),

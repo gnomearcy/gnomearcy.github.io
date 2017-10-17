@@ -16,10 +16,24 @@ class Form extends Component{
       this.sendMessage = this.sendMessage.bind(this);
   }
 
-  sendMessage(){
-    let name =  document.getElementById(name_key);
-    let email = document.getElementById(email_key);
-    let message = document.getElementById(message_key);
+  sendMessage() {
+    let name =  document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    console.log(name);
+    const subject = "Portofolio message"
+    const body = `
+      From ${name.trim().length > 0 ? name : "unknown"}
+      at (${email.trim().length > 0 ? email : "unknown"}):
+      ${message.length > 0 ? message : "empty message"}
+    `;
+
+    let template = `
+      mailto:tmartincic314@gmail.com?subject=${subject}
+      &body=${body}
+    `
+    window.open(template);
   }
 
   markup(key_suffix,
