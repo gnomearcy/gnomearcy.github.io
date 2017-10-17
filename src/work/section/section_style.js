@@ -15,7 +15,8 @@ export default {
     borderTop: "1px solid #ccc",
     width: grid.maxWidthMobile,
     height: "100%",
-    paddingTop: grid.row(2),
+    paddingTop: grid.row(1),
+    marginTop: grid.row(1),
 
     [mq.desktop]:{
         width: grid.maxWidth,

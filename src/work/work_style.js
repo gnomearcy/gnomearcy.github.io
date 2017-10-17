@@ -3,6 +3,10 @@ import mq from '../style/media_queries'
 import grid from '../style/grid'
 
 export default {
+  content:{
+      marginBottom: grid.row(3)
+  },
+
   description:{
     ...typography.mobile.body,
     ...{

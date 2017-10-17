@@ -15,7 +15,7 @@ class Work extends Component{
   componentDidMount(){
     window.scrollTo(0,0);
   }
-  
+
   render(){
     const secs = sections.map((section_data, index) => {
       return <Section key={`section${index}`} data={section_data}/>
@@ -28,7 +28,7 @@ class Work extends Component{
       <div>
         <CoverPhoto {...propCreator(desktopCoverPhoto)} />
         <ProfilePicture title="My work"/>
-        <Content>
+        <Content style={workStyle.content}>
           <div style={workStyle.description}>
             Description Description
             Description

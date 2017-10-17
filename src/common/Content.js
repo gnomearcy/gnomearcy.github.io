@@ -19,7 +19,7 @@ class Content extends React.Component{
     console.log("Rendering Content");
     console.log(this.props.style);
     return (
-      <div style={style}>
+      <div style={{...style,...this.props.style}}>
         {this.props.children}
       </div>
     );
@@ -27,5 +27,3 @@ class Content extends React.Component{
 }
 
 export default Radium(Content)
-// For injecting styles
-// <div style={{...style, ...this.props.style}}>

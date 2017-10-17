@@ -23,10 +23,5 @@ export default [
     visual: visual_contact,
     route: contact,
     icon: "fa-phone"
-  },
-  {
-    visual: "Testing",
-    route: "/testing",
-    icon: "fa-question"
   }
 ]

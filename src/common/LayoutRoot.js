@@ -8,7 +8,6 @@ import Home from '../home/Home';
 import Work from '../work/Work';
 import About from '../about/About'
 import Contact from '../contact/Contact'
-import Tests from '../testing/Tests'
 import DebugGrid from '../common/DebugGrid'
 
 import Header from '../common/header/Header';
@@ -37,11 +36,8 @@ class LayoutRoot extends Component {
           <div>
             <Header/>
             <div>
-              <DebugGrid />
-              <div>
-                <Content />
-                <Footer />
-              </div>
+              <Content />
+              <Footer />
             </div>
           </div>
         </HashRouter>
@@ -59,7 +55,6 @@ class Content extends Component {
         <Route exact path='/work' component={Work} />
         <Route exact path='/about' component={About} />
         <Route exact path="/contact" component={Contact}/>
-        <Route exact path="/testing" component={Tests}/>
       </div>
     );
   }
