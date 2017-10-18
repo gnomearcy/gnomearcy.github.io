@@ -21,9 +21,6 @@ class Work extends Component{
       return <Section key={`section${index}`} data={section_data}/>
     })
 
-    console.log("Computed sections");
-    console.log(secs);
-
     return (
       <div>
         <CoverPhoto {...propCreator(desktopCoverPhoto)} />

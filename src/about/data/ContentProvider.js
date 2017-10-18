@@ -7,9 +7,9 @@ import {section_title, entries} from './keys'
 
 const mapSourceToSection = (data_source) => {
 
-    console.log("Mapping source to section");
-    console.log("data source is: ");
-    console.log(data_source);
+    // console.log("Mapping source to section");
+    // console.log("data source is: ");
+    // console.log(data_source);
     const props = {
       [section_title]: data_source[section_title],
       [entries]: data_source[entries]

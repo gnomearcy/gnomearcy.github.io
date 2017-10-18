@@ -18,6 +18,7 @@ export default {
       },
 
       link:{
+
         paddingLeft: '2.5rem',
         fontFamily: 'Comic-sans',
         textDecoration: 'none',
@@ -25,6 +26,16 @@ export default {
         letterSpacing: '0.05rem',
         color: '#000',
         transition: 'all .4s ease 0s',
-        textTransform: "uppercase"
-      }
+        textTransform: "uppercase",
+
+        container: {
+          width: grid.col(1) * 1.5,
+        },
+
+        underline:{
+          width: grid.col(1),
+          height: 5,
+          backgroundColor: "yellow"
+        }
+      },
 }

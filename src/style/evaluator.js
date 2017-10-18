@@ -15,7 +15,6 @@ const undefinedEvaluator = (p) => {
    throwIfUndef(p);
    for(var propertyName in p){
      if(p.hasOwnProperty(propertyName)){
-       console.log(p);
        let value = p[propertyName];
        if(typeof value === 'undefined'){
          throw "Property " + propertyName + " is undefined";

@@ -18,13 +18,16 @@ import grid from '../../style/grid';
 import headerStyle from './header_style'
 import HorizontalCenter from '../HorizontalCenter'
 
+const clickedIndex = "clicked_index"
+
 class Header extends Component{
 
   constructor(props){
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
-      showCollapsedMenu: false
+      showCollapsedMenu: false,
+      chosenLink: localStorage.getItem(clickedIndex)
     }
   }
 
@@ -35,46 +38,94 @@ class Header extends Component{
     // this.setState({ showCollapsedMenu: !this.state.showCollapsedMenu});
     // TODO: remove this
     this.setState((prevState, props) => {
-      return {showCollapsedMenu: !prevState.showCollapsedMenu};
+      return {
+        showCollapsedMenu: !prevState.showCollapsedMenu,
+        chosenLink: prevState.chosenLink
+      };
+    });
+  }
+
+  handleForCollapsedMenu(clicked_link_index){
+    console.log("Gor response from menu with NEW index -> " + clicked_link_index);
+    if(clicked_link_index === undefined){
+      throw "invalid clicked link index"
+    }
+
+    localStorage.setItem(clickedIndex, clicked_link_index)
+
+    // Trigger re-render to update the UI
+    this.setState((prevState, props) => {
+      return {
+        showCollapsedMenu: prevState.showCollapsedMenu,
+        chosenLink: clicked_link_index
+      };
+    });
+  }
+
+
+  componentWillMount(){
+
+      // TODO: implement a regex to filter out the subsection
+      // such as work, about and contact and set the corresponding state
+      // This method is triggered before render :)
+
+      console.log("regexing");
+      const regex = new RegExp("[\s\S]*(\/[\s\S]*)")
+      let value = window.location.href;
+      let result = regex.exec(value)
+      console.log(result);
+  }
+
+  changeLinkState = (new_index) => {
+
+    console.log("header link management");
+    console.log("new value -> " + new_index);
+
+    // TODO refactor the constant
+    // Home button
+    if(new_index === -1){
+      localStorage.removeItem(clickedIndex)
+    }
+    else{
+      localStorage.setItem(clickedIndex, new_index)
+    }
+
+// https?:\/\/[\s\S]*(\/[\s\S]*)(\/)
+    // Re-render stuff
+    let index = localStorage.getItem(clickedIndex);
+    this.setState((prevState, props) => {
+      return {
+        showCollapsedMenu: prevState.showCollapsedMenu,
+        chosenLink: index
+      };
     });
   }
 
   // TODO: add open/close animation
   // TODO find a way how to close this menu when media query changes to desktop
+
+
   render(){
+
+    console.log("Render of Header");
+    console.log(this.state);
     return(
-
-
 
       <div style={headerStyle.root}>
         <div style={headerStyle.header}>
-          <Logo />
-          <Links />
+          <Logo
+            headerCallback={this.changeLinkState}/>
+          <Links
+            headerCallback={this.changeLinkState}
+            activeLink={this.state.chosenLink}/>
           <Hamburger onClick={this.toggleMenu}/>
         </div>
-        {
-          this.state.showCollapsedMenu ?
-          <CollapsedMenu />
-          : null
-        }
+        <CollapsedMenu
+          showYourself={this.state.showCollapsedMenu}
+          headerLink={this.handleForCollapsedMenu}/>
       </div>
     )
   }
 }
 
 export default Radium(Header)
-
-// <div style={this.props.style}>
-//   <HorizontalCenter style={headerStyle.underlay}>
-//     <div style={headerStyle}>
-//       <Logo />
-//       <Links />
-//       <Hamburger onClick={this.toggleMenu}/>
-//     </div>
-//   </HorizontalCenter>
-//   {
-//     this.state.showCollapsedMenu ?
-//     <CollapsedMenu />
-//     : null
-//   }
-// </div>

@@ -37,9 +37,6 @@ class CoverPhoto extends React.Component{
         }
       })
 
-      console.log("final style");
-      console.log(backgroundStyle);
-
       return(
         <div style={photo.container}>
           <img style={backgroundStyle}></img>

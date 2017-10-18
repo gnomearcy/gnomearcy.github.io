@@ -43,7 +43,7 @@ class Section extends React.Component{
   }
 }
 
-Project.propTypes = {
+Section.propTypes = {
   data: PropTypes.instanceOf(section_model)
 }
 

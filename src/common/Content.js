@@ -16,8 +16,6 @@ const style={
 
 class Content extends React.Component{
   render() {
-    console.log("Rendering Content");
-    console.log(this.props.style);
     return (
       <div style={{...style,...this.props.style}}>
         {this.props.children}

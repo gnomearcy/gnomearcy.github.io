@@ -8,7 +8,6 @@ import project_model from './model'
 import mobile_style from './mobile_style'
 import desktop_style from './desktop_style'
 
-
 /*
   This class wrapps multiple Media components to implement media query behaviour.
   This way is required because for some reason "hover" pseudoelements do not

@@ -83,7 +83,6 @@ image: {
 //   }
 // }
 
-console.log("BLA!");
 undefinedEvaluator(label)
 export {
   label, photo

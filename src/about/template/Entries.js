@@ -19,9 +19,7 @@ class Entries extends React.Component {
     )
   }
 
-    render(){
-    console.log("Making entries -> ");
-    console.log(this.props);
+  render(){
     throwIfUndef(this.props[entries])
     let entriesMarkup = [];
     for(var i = 0, size = this.props[entries].length; i < size; i++){

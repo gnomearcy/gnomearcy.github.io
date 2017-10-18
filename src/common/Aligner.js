@@ -8,7 +8,7 @@ class Block extends React.Component{
   }
 
   componentDidMount(){
-    console.log("Child DID mount");
+    // console.log("Child DID mount");
     if(this.props.getRef){
       this.props.getRef(this.block, this.props.i);
     }
@@ -39,7 +39,7 @@ class Block extends React.Component{
   Centers all elements vertically.
   Transfers attributes margin-top, margin-bottom and border from child root
   node one level up into the wrapping Block element.
-  
+
   In case of multiple children:
   - margin-top of first child is ignored
   - margin-bottom of last child is ignored
@@ -55,7 +55,7 @@ class Aligner extends React.Component{
   // Callback method given to Block children in order for them to report
   // their height. Check componentDidMount of Block component for call site.
   getRef = (ref, i) => {
-    console.log(`getRef callback -> registering index ${i}`);
+    // console.log(`getRef callback -> registering index ${i}`);
     this.blocks.push(ref);
   }
 
@@ -67,58 +67,57 @@ class Aligner extends React.Component{
     //   throw "empty blocks"
     // }
 
-    console.log("PARENT did MOUNT");
-    console.log("blocks ->");
-    console.log(this.blocks);
+    // console.log("PARENT did MOUNT");
+    // console.log("blocks ->");
+    // console.log(this.blocks);
 
     let childrenHeight = 0;
     let size = this.blocks.length;
     if(size == 1){
-      console.log("Processing one and only child:");
+      // console.log("Processing one and only child:");
       // Border width, paddingTop and paddingBottom are calculated in bounding height
       let height = parseInt(this.blocks[0].getBoundingClientRect().height);
       let top = parseInt(this.blocks[0].style.marginTop);
       let bottom = parseInt(this.blocks[0].style.marginBottom);
-      console.log(`Child height -> ${height}`);
-      console.log(`Child top -> ${top}`);
-      console.log(`Child bottom -> ${bottom}`);
+      // console.log(`Child height -> ${height}`);
+      // console.log(`Child top -> ${top}`);
+      // console.log(`Child bottom -> ${bottom}`);
       childrenHeight = height + (isNaN(top) ? 0 : top) + (isNaN(bottom) ? 0 : bottom);
-      console.log(`Child total height -> ${childrenHeight}`);
+      // console.log(`Child total height -> ${childrenHeight}`);
     } else {
-      console.log("Processing multiple children");
-      console.log("Nr of children -> " + this.blocks.length);
+      // console.log("Processing multiple children");
+      // console.log("Nr of children -> " + this.blocks.length);
       for(var i = 0; i < size; i++){
         let child = this.blocks[i];
-        console.log(child);
+        // console.log(child);
         let childHeight = parseInt(child.getBoundingClientRect().height);
-        console.log(`Child ${i} height -> ${childHeight}`);
+        // console.log(`Child ${i} height -> ${childHeight}`);
 
         childrenHeight += parseInt(child.getBoundingClientRect().height);
-        console.log(`Current total child height -> ${childrenHeight}`);
+        // console.log(`Current total child height -> ${childrenHeight}`);
         if(i == 0){
-          console.log("Processing first child");
+          // console.log("Processing first child");
           // For first child, ignore top margin
           let bottomMargin = parseInt(child.style.marginBottom);
-          console.log(`Bottom margin -> ${bottomMargin}`);
+          // console.log(`Bottom margin -> ${bottomMargin}`);
           childrenHeight += isNaN(bottomMargin) ? 0 : bottomMargin;
         } else if(i === size - 1){
-          console.log("Processing last child");
+          // console.log("Processing last child");
           // For last child, ignore bottom margin
           let topMargin = parseInt(child.style.marginTop);
           childrenHeight += isNaN(topMargin) ? 0 : topMargin;
         }
         else{
-          console.log("Adding both margins");
-          console.log(child.style);
+          // console.log("Adding both margins");
+          // console.log(child.style);
           let topMargin = parseInt(child.style.marginTop);
           let bottomMargin = parseInt(child.style.marginBottom);
-          console.log(`Bottom margin -> ${bottomMargin}`);
-          console.log(`Top margin -> ${topMargin}`);
+          // console.log(`Bottom margin -> ${bottomMargin}`);
+          // console.log(`Top margin -> ${topMargin}`);
           childrenHeight += isNaN(topMargin) ? 0 : topMargin;
           childrenHeight += isNaN(bottomMargin) ? 0 : bottomMargin;
         }
-        console.log(`Current total child height after margins -> ${childrenHeight}`);
-
+        // console.log(`Current total child height after margins -> ${childrenHeight}`);
       }
     }
 
@@ -141,8 +140,8 @@ class Aligner extends React.Component{
       computedMargin = (rootNodeHeight - childrenHeight) / 2;
     }
 
-    console.log(rootNodeHeight);
-    console.log(childrenHeight);
+    // console.log(rootNodeHeight);
+    // console.log(childrenHeight);
     // Trigger re-render of child components by setting new state
     this.setState({
       computedTopMargin: true,
@@ -176,15 +175,15 @@ class Aligner extends React.Component{
       return this.wrappedChildren;
     }
 
-    console.log("Wrapping children...");
+    // console.log("Wrapping children...");
     const size = React.Children.count(this.props.children);
     if(this.props.children === undefined || size === 0){
       throw "this.props.children === undefined or empty"
     }
 
     const children = React.Children.toArray(this.props.children);
-    console.log("Manipulated kids");
-    console.log(children);
+    // console.log("Manipulated kids");
+    // console.log(children);
 
     this.wrappedChildren = [];
 
@@ -215,7 +214,7 @@ class Aligner extends React.Component{
 
         if(child.props.style !== undefined){
           if(i === 0){
-            console.log("Stripping top margin from first child");
+            // console.log("Stripping top margin from first child");
             const {marginBottom, border} = {...child.props.style};
             stolenStyle = {
               marginBottom: marginBottom,
@@ -223,7 +222,7 @@ class Aligner extends React.Component{
             }
           }
           else if(i === size - 1){
-            console.log("Stripping bottom margin from last child");
+            // console.log("Stripping bottom margin from last child");
             const {marginTop, border} = {...child.props.style};
             stolenStyle = {
               marginTop: marginTop,
@@ -231,7 +230,7 @@ class Aligner extends React.Component{
             }
           }
           else{
-            console.log("Keeping both margins from current child " + i);
+            // console.log("Keeping both margins from current child " + i);
             const {marginBottom, marginTop, border} = {...child.props.style};
             stolenStyle = {
               marginBottom: marginBottom,
@@ -258,7 +257,7 @@ class Aligner extends React.Component{
   render() {
     let mergedStyle;
     if(this.state.computedTopMargin){
-      console.log("Merging after margin computation");
+      // console.log("Merging after margin computation");
         const computedMargin = {
           marginTop : this.state.topMargin
         }
@@ -274,13 +273,13 @@ class Aligner extends React.Component{
         mergedStyle = {...injectedStyle, ...computedMargin};
     }
     else{
-      console.log("Top margin not yet computed");
-      console.log(this.props.style);
+      // console.log("Top margin not yet computed");
+      // console.log(this.props.style);
       if(this.props.style){
         mergedStyle = JSON.parse(JSON.stringify(this.props.style))
         delete mergedStyle["height"]
       }
-      console.log(mergedStyle);
+      // console.log(mergedStyle);
     }
 
     return <div
