@@ -102,7 +102,9 @@ const log = undefinedEvaluator({
             left: "50%",
             transform: "translateX(-50%)",
             marginTop: `${grid.row(5) + marginFix}px`,
-            lineHeight: `${grid.rowHeight}px`
+            lineHeight: `${grid.rowHeight}px`,
+            width: grid.maxWidthMobile,
+            textAlign: "center"
           },
 
           typo.mobile.titleText
@@ -119,6 +121,7 @@ const log = undefinedEvaluator({
           // In correlation with profile pic container's position "absolute" value
           lineHeight: `${grid.rowHeight}px`,
 
+          textAlign: "left",
           // How many empty rows to place above title text
           marginTop: grid.row(2)
         },

@@ -84,8 +84,9 @@ export default {
 
     // Mobile properties
     ...{
-      width: grid.col(3),
-      marginBottom: grid.row(3)
+      width: grid.maxWidthMobile,
+      marginBottom: grid.row(3),
+      textAlign: "center"
     },
 
     // Desktop properties
