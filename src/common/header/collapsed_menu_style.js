@@ -3,6 +3,7 @@ import mq from '../../style/media_queries';
 import grid from '../../style/grid'
 import headerLogo from './logo_style.js'
 import fontAwesomeSizeConverter from '../../util/font_awesome'
+import {colors} from './header_style'
 
 const iconSize = 32;
 const menuItemHeight = 70;
@@ -11,8 +12,9 @@ const linkColor = "#111";
 export default {
 
   menu: {
-    width: grid.col(3),
-    display: "inline-block",
+    // width: grid.col(3),
+    // display: "inline-block",
+    backgroundColor: colors.normal,
 
     [mq.desktop]:{
       display: "none"
@@ -23,7 +25,39 @@ export default {
     textTransform: "uppercase",
     height: menuItemHeight,
     textDecoration: "none",
-    display: "-webkit-box",
+    textAlign: "left",
+    display: "block",
+    "-webkit-tap-highlight-color": colors.pressed,
+
+    // ":hover":{
+    //   color: "green",
+    //   backgroundColor: "yellow"
+    // },
+    // ":active":{
+    //   color: "green",
+    //   backgroundColor: "yellow"
+    // },
+    // ":focus":{
+    //   color: "green",
+    //   backgroundColor: "green"
+    // },
+    // ":checked":{
+    //   color: "green",
+    //   backgroundColor: "green"
+    // },
+    // ":enabled":{
+    //   color: "green",
+    //   backgroundColor: "green"
+    // },
+    // ":visited":{
+    //   color: "green",
+    //   backgroundColor: "green"
+    // },
+
+    content:{
+      width: grid.maxWidthMobile,
+      margin: "0 auto",
+    },
 
     label: {
       paddingLeft: headerLogo.initials.paddingLeft,

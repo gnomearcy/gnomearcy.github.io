@@ -2,6 +2,14 @@ import grid from '../../style/grid'
 import mq from '../../style/media_queries'
 
 const headerHeight = grid.rowHeight * 3;
+const headerBgColors= {
+  normal: "rgba(204,204,204,0.8)",
+  pressed: "rgba(165,165,165,0.2)"
+}
+
+export {
+  headerBgColors as colors
+}
 
 export default {
 
@@ -18,14 +26,15 @@ export default {
 
     // Wrapper for header content that...
     root: {
-      height: headerHeight,
+      height: headerHeight + 4,
       // ... has its own style and dimension ...
-      backgroundColor: "rgba(204,204,204,0.8)",
+      backgroundColor: headerBgColors.normal,
       // height: headerHeight,
 
       // ... spans entire viewport width...
-      left: "0",
-      right: "0",
+      width: "100%",
+      // left: "0",
+      // right: "0",
 
       // ... is fixed on top of viewport and above every other element...
       zIndex: 9999,
@@ -33,5 +42,8 @@ export default {
 
       // ... while centering wrapping content
       textAlign: "center",
+      [mq.desktop]:{
+        height: headerHeight
+      }
     }
 }

@@ -11,7 +11,7 @@ class About extends Component{
   componentDidMount(){
     window.scrollTo(0,0);
   }
-  
+
   render(){
     return (
       <div>
@@ -21,9 +21,6 @@ class About extends Component{
           {skills}
           {experience}
           {education}
-          <div style={{height: "200px", backgroundColor: "#eee", textAlign: "center", lineHeight: "200px", width: "100%"}}>
-              About the website
-          </div>
         </Content>
       </div>
     );
