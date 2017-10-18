@@ -4,6 +4,12 @@ import headerDims from './header_style'
 
 const fontSize = 18;
 
+const underline = {
+  height: 3,
+  marginTop: 6,
+  color: "#ecec98"
+}
+
 export default {
 
       linkContainer: {
@@ -19,7 +25,6 @@ export default {
 
       link:{
 
-        paddingLeft: '2.5rem',
         fontFamily: 'Comic-sans',
         textDecoration: 'none',
         fontSize: fontSize,
@@ -29,13 +34,15 @@ export default {
         textTransform: "uppercase",
 
         container: {
-          width: grid.col(1) * 1.5,
+          float: "left",
+          marginLeft: "2.5rem",
+          marginTop: underline.height + underline.marginTop
         },
 
         underline:{
-          width: grid.col(1),
-          height: 5,
-          backgroundColor: "yellow"
+          height: underline.height,
+          backgroundColor: underline.color,
+          marginTop: underline.marginTop
         }
       },
 }
