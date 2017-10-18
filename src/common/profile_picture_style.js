@@ -7,6 +7,7 @@ const outlineColor = "#e9e9e9"
 const outlineWidth = 2
 const separatorColor = "#fff"
 const profilePictureHeight = 196;
+const profilePictureHeightMobile = 140;
 const innerCircleWidth = 14 - parseInt(outlineWidth);
 const separatorThickness = 14;
 const marginFix = -2 * outlineWidth;
@@ -52,8 +53,8 @@ const log = undefinedEvaluator({
 
   profilePicture: {
     position: "absolute",
-    width: profilePictureHeight,
-    height: profilePictureHeight,
+    width: profilePictureHeightMobile,
+    height: profilePictureHeightMobile,
     transform: "translateY(-50%) translateX(-50%)",
     left: "50%",
     marginTop: `${-separatorThickness / 2}px`,
@@ -64,6 +65,8 @@ const log = undefinedEvaluator({
     // Horizontally center for absolute positioning
     // left: "50%",
     [mq.desktop]:{
+      width: profilePictureHeight,
+      height: profilePictureHeight,
       transform: "translateY(-50%) translateX(0%)",
       marginLeft: 0,
       marginRight: 0,
@@ -74,20 +77,30 @@ const log = undefinedEvaluator({
       border: `${parseInt(outlineWidth)}px solid ${outlineColor}`,
       position: "absolute",
       backgroundColor: "#e9e9e9",
-      width: `${profilePictureHeight}px`,
-      height: `${profilePictureHeight}px`,
-      borderRadius: "50% 50%"
+      width: profilePictureHeightMobile,
+      height: profilePictureHeightMobile,
+      borderRadius: "50% 50%",
+
+      [mq.desktop]: {
+        width: profilePictureHeight,
+        height: profilePictureHeight
+      }
     },
 
     innerCircle: {
       position: "absolute",
       backgroundColor: "#f5f5f5",
-      width: `${parseInt(profilePictureHeight) - parseInt(innerCircleWidth * 2)}px`,
-      height: `${parseInt(profilePictureHeight) - parseInt(innerCircleWidth * 2)}px`,
+      width: `${parseInt(profilePictureHeightMobile) - parseInt(innerCircleWidth * 2)}px`,
+      height: `${parseInt(profilePictureHeightMobile) - parseInt(innerCircleWidth * 2)}px`,
       borderRadius: "50% 50%",
       border: `${parseInt(outlineWidth)}px solid ${outlineColor}`,
       marginLeft: `${parseInt(innerCircleWidth)}px`,
-      marginTop: `${parseInt(innerCircleWidth)}px`
+      marginTop: `${parseInt(innerCircleWidth)}px`,
+
+      [mq.desktop]: {
+        width: `${parseInt(profilePictureHeight) - parseInt(innerCircleWidth * 2)}px`,
+        height: `${parseInt(profilePictureHeight) - parseInt(innerCircleWidth * 2)}px`,
+      }
     }
   },
 

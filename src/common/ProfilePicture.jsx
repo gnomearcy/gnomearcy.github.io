@@ -22,9 +22,15 @@ class ProfilePicture extends React.Component{
       <div style={style.root}>
         <div style={style.separator}></div>
         <div style={style.picTextContainer}>
-          <div style={style.profilePicture}>
-            <div style={style.profilePicture.outerCircle}></div>
-            <div style={style.profilePicture.innerCircle}></div>
+          <div
+            id="profile_picture"
+            style={style.profilePicture}>
+            <div
+              id="outer_circle"
+              style={style.profilePicture.outerCircle}/>
+            <div
+              id="inner_circle"
+              style={style.profilePicture.innerCircle}/>
           </div>
           {
             ( this.props.title !== undefined
