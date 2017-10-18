@@ -68,7 +68,6 @@ class Header extends Component{
       // TODO: implement a regex to filter out the subsection
       // such as work, about and contact and set the corresponding state
       // This method is triggered before render :)
-
       console.log("regexing");
       const regex = new RegExp("[\s\S]*(\/[\s\S]*)")
       let value = window.location.href;

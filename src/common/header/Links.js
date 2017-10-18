@@ -38,9 +38,11 @@ class SingleLink extends Component{
       let index = this.props.index;
       return(
       <div
+        id={`link_container_${index}`}
         style={style.link.container}>
         <Link
-           key={index}
+           id={`link_${index}`}
+           key={`link_${index}`}
            style={style.link}
            to={routes[index].route}
            onClick={() => {this.props.linkContainerHandle(this.props.index)}}
