@@ -35,7 +35,6 @@ class LayoutRoot extends Component {
     return(
       <StyleRoot>
         <HashRouter>
-
           <div>
             <Header/>
             <div>
@@ -48,7 +47,6 @@ class LayoutRoot extends Component {
               <Footer />
             </div>
           </div>
-
         </HashRouter>
       </StyleRoot>
     );

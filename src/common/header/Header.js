@@ -26,6 +26,7 @@ class Header extends Component{
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.handleForCollapsedMenu = this.handleForCollapsedMenu.bind(this);
+    this.changeLinkState = this.changeLinkState.bind(this);
     this.state = {
       showCollapsedMenu: false,
       chosenLink: localStorage.getItem(clickedIndex)
@@ -77,7 +78,9 @@ class Header extends Component{
       console.log(result);
   }
 
-  changeLinkState = (new_index) => {
+  // Arrow syntaxed function to avoid binding in constructor
+  // changeLinkState = (new_index) => {
+    changeLinkState(new_index){
 
     console.log("header link management");
     console.log("new value -> " + new_index);
