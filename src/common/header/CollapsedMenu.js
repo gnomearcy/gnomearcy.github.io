@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Radium from 'radium'
+import { Link } from 'react-router-dom';
 
 // import './collapsed_menu_style.css';
 import style from './collapsed_menu_style'
@@ -50,7 +51,10 @@ class CollapsedMenu extends Component{
     for(var i = 0, size = routes.length; i < size; i++)
     {
       var menuItem =
-      <Link index={i} onLinkClick={this.linkClicked}/>
+      <MenuItem
+        index={i}
+        data={routes[i]}
+        onLinkClick={this.linkClicked}/>
       items.push(menuItem);
     }
 
@@ -62,38 +66,46 @@ class CollapsedMenu extends Component{
   }
 }
 
-class Link extends React.Component{
+class MenuItem extends React.Component{
 
     linkClicked = () => {
       this.props.onLinkClick(this.props.index);
     }
 
     render(){
+      let i = this.props.index;
+      let data = this.props.data;
+
       return(
-        <a style={style.item}
-           key={"item_" + this.props.index}
-           onClick={this.linkClicked}
-           href={routes[this.props.index].route}>
+        <Link
+           style={style.item}
+           key={"item_" + i}
+           to={data.route}
+           onClick={this.linkClicked}>
            <div style={style.item.content}
-             key={"item_content_" + this.props.index}>
+             key={"item_content_" + i}>
              <div style={style.icon.container}>
                 <FontAwesome
                    size={style.icon.size}
-                   className={routes[this.props.index].icon}/>
+                   className={data.icon}/>
               </div>
               <div
                 style={style.item.label}
-                key={this.props.index}>
-                  {routes[this.props.index].visual}
+                key={i}>
+                  {data.visual}
               </div>
           </div>
-        </a>
+        </Link>
       )
     }
 }
 
 CollapsedMenu.propTypes = {
   headerLink: PropTypes.func.isRequired
+}
+
+MenuItem.propTypes = {
+  index: PropTypes.number.isRequired
 }
 
 export default Radium(CollapsedMenu)
