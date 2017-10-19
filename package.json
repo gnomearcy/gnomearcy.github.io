@@ -2,7 +2,7 @@
   "name": "portofolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://gnomearcy.github.io",
+  "homepage": "http://gnomearcy.github.io/portofolio",
   "dependencies": {
     "autoprefixer": "7.1.1",
     "babel-core": "6.25.0",
@@ -57,7 +57,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build -b master --remote origin",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
