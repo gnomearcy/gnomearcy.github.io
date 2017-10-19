@@ -72,12 +72,14 @@ class MenuItem extends React.Component{
       this.props.onLinkClick(this.props.index);
     }
 
+
     render(){
+      let data = this.props.data;
       return(
         <Link style={style.item}
            key={"item_" + this.props.index}
-           onClick={this.linkClicked}
-           href={data.route}>
+           to={data.route}
+           onClick={this.linkClicked}>
            <div style={style.item.content}
              key={"item_content_" + this.props.index}>
              <div style={style.icon.container}>
