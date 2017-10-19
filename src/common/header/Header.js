@@ -25,6 +25,7 @@ class Header extends Component{
   constructor(props){
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.handleForCollapsedMenu = this.handleForCollapsedMenu.bind(this);
     this.state = {
       showCollapsedMenu: false,
       chosenLink: localStorage.getItem(clickedIndex)
@@ -56,18 +57,19 @@ class Header extends Component{
     // Trigger re-render to update the UI
     this.setState((prevState, props) => {
       return {
-        showCollapsedMenu: prevState.showCollapsedMenu,
+        showCollapsedMenu: !prevState.showCollapsedMenu,
         chosenLink: clicked_link_index
       };
     });
   }
-
 
   componentWillMount(){
 
       // TODO: implement a regex to filter out the subsection
       // such as work, about and contact and set the corresponding state
       // This method is triggered before render :)
+
+      // https?:\/\/[\s\S]*(\/[\s\S]*)(\/)
       console.log("regexing");
       const regex = new RegExp("[\s\S]*(\/[\s\S]*)")
       let value = window.location.href;
@@ -89,7 +91,6 @@ class Header extends Component{
       localStorage.setItem(clickedIndex, new_index)
     }
 
-// https?:\/\/[\s\S]*(\/[\s\S]*)(\/)
     // Re-render stuff
     let index = localStorage.getItem(clickedIndex);
     this.setState((prevState, props) => {
@@ -102,8 +103,6 @@ class Header extends Component{
 
   // TODO: add open/close animation
   // TODO find a way how to close this menu when media query changes to desktop
-
-
   render(){
 
     console.log("Render of Header");
