@@ -73,17 +73,13 @@ class MenuItem extends React.Component{
     }
 
     render(){
-      let i = this.props.index;
-      let data = this.props.data;
-
       return(
-        <Link
-           style={style.item}
-           key={"item_" + i}
-           to={data.route}
-           onClick={this.linkClicked}>
+        <Link style={style.item}
+           key={"item_" + this.props.index}
+           onClick={this.linkClicked}
+           href={data.route}>
            <div style={style.item.content}
-             key={"item_content_" + i}>
+             key={"item_content_" + this.props.index}>
              <div style={style.icon.container}>
                 <FontAwesome
                    size={style.icon.size}
@@ -91,7 +87,7 @@ class MenuItem extends React.Component{
               </div>
               <div
                 style={style.item.label}
-                key={i}>
+                key={this.props.index}>
                   {data.visual}
               </div>
           </div>
@@ -105,7 +101,7 @@ CollapsedMenu.propTypes = {
 }
 
 MenuItem.propTypes = {
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
 }
 
 export default Radium(CollapsedMenu)
