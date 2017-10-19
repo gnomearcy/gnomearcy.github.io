@@ -48,7 +48,6 @@ class Header extends Component{
   }
 
   handleForCollapsedMenu(clicked_link_index){
-    console.log("Gor response from menu with NEW index -> " + clicked_link_index);
     if(clicked_link_index === undefined){
       throw "invalid clicked link index"
     }
@@ -71,19 +70,12 @@ class Header extends Component{
       // This method is triggered before render :)
 
       // https?:\/\/[\s\S]*(\/[\s\S]*)(\/)
-      console.log("regexing");
       const regex = new RegExp("[\s\S]*(\/[\s\S]*)")
       let value = window.location.href;
       let result = regex.exec(value)
-      console.log(result);
   }
 
-  // Arrow syntaxed function to avoid binding in constructor
-  // changeLinkState = (new_index) => {
     changeLinkState(new_index){
-
-    console.log("header link management");
-    console.log("new value -> " + new_index);
 
     // TODO refactor the constant
     // Home button
@@ -107,9 +99,6 @@ class Header extends Component{
   // TODO: add open/close animation
   // TODO find a way how to close this menu when media query changes to desktop
   render(){
-
-    console.log("Render of Header");
-    console.log(this.state);
     return(
 
       <div style={headerStyle.root}>

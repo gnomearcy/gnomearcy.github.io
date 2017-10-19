@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Radium from 'radium'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
-// import './collapsed_menu_style.css';
 import style from './collapsed_menu_style'
 import routes from '../../data/routes'
 import HorizontalCenter from '../HorizontalCenter'
 
-import PropTypes from 'prop-types'
-
-const link = {
-    width: "100%",
-    height: 56,
-    display: "block"
-}
 
 class CollapsedMenu extends Component{
 
