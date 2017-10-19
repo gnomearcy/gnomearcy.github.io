@@ -34,7 +34,7 @@ class LayoutRoot extends Component {
   render(){
     return(
       <StyleRoot>
-        <BrowserRouter>
+        <HashRouter>
 
           <div>
             <Header/>
@@ -49,7 +49,7 @@ class LayoutRoot extends Component {
             </div>
           </div>
 
-        </BrowserRouter>
+        </HashRouter>
       </StyleRoot>
     );
   }
