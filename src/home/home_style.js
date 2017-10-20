@@ -1,6 +1,7 @@
 import typography from '../style/typefaces'
 import mq from '../style/media_queries'
 import grid from '../style/grid'
+import button from '../style/button'
 
 const button_border = 1;
 
@@ -103,33 +104,10 @@ export default {
       ...{
         width: grid.col(4),
         height: grid.row(2) - button_border * 2,
-        border: `${button_border}px solid black`,
-        backgroundColor: "#ccc",
-        color: "#333",
-
-        textDecoration: "none",
-        // display: "inline-block",
         float: "right",
-
-        // Disable text highlighting
-        userSelect: "none",
-
-        // Center text in the div
-        textAlign: "center",
         lineHeight: `${grid.row(2)}px`,
-        textTransform: "uppercase",
-        fontWeight: "bold",
-
-        ":hover":{
-          backgroundColor: "#bbb",
-          color: "#333"
-        },
-
-        ":active":{
-          backgroundColor: "#aaa",
-          color: "#111"
-        }
-      }
+      },
+      ...button
     },
 
     button_mobile:{

@@ -1,6 +1,7 @@
 import typography from '../style/typefaces'
 import mq from '../style/media_queries'
 import grid from '../style/grid'
+import button from '../style/button'
 
 const form_padding = 2 * grid.gutter;
 const form_width_desktop = grid.col(6);
@@ -59,23 +60,23 @@ const input_base = {
   padding: input_padding
 }
 
-const button = {
-
-  base:{
-    float: "right",
-    lineHeight: `${grid.row(2)}px`,
-    userSelect: "none",
-    border: "1px solid #b6b6b6",
-    backgroundColor: "#eaeaea",
-    textTransform: "uppercase",
-    textAlign: "center",
-
-    ":active":{
-      backgroundColor: "black",
-      backgroundColor: "#dedede"
-    }
-  }
-}
+// const button = {
+//
+//   base:{
+//     float: "right",
+//     lineHeight: `${grid.row(2)}px`,
+//
+//     userSelect: "none",
+//     border: "1px solid #b6b6b6",
+//     backgroundColor: "#eaeaea",
+//     textTransform: "uppercase",
+//     textAlign: "center",
+//
+//     ":active":{
+//       backgroundColor: "#dedede"
+//     }
+//   }
+// }
 
 
 export default {
@@ -222,10 +223,11 @@ export default {
       mobile:{
         ...typography.mobile.body,
         ...{
-          width: grid.col(2),
+          // Width is not required, it will fill entire space
           height: grid.row(2),
+          lineHeight: `${grid.row(2)}px`
         },
-        ...button.base
+        ...button
       },
 
       desktop:{
@@ -233,8 +235,10 @@ export default {
         ...{
           height: grid.row(2),
           width: grid.col(3),
+          lineHeight: `${grid.row(2)}px`,
+          float: "right"
         },
-        ...button.base
+        ...button
       }
     }
   },
