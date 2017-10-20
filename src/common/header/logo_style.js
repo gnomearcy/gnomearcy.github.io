@@ -1,49 +1,40 @@
 import mq from '../../style/media_queries'
 import grid from '../../style/grid'
-import headerDimensions from './header_style'
+import {header_height} from './header_style'
 import hamburgerDims from './hamburger_style'
+import {nanEvaluator} from '../../style/evaluator'
 
 const imageDimension = 36;
 const textColor = "#111";
 
-export default {
+export default nanEvaluator({
 
     container: {
 
-      // Subtracting an amount of pixels from width
-      // to allow the Hamburger icon click event,
-      // by shortening this components' width since
-      // it's laying over the Hamburger and stealing clicks. :)
-      width: grid.col(3) - hamburgerDims.size * 2,
-      height: imageDimension,
-      display: 'flex',
-      alignItems: 'center',
       textDecoration: 'none',
-      outline: 0,
       color: textColor,
+      position: "absolute",
       top: "50%",
       transform: "translateY(-50%)",
-
-      // Vertical alignment in container
-      position: "absolute",
-      marginTop: (headerDimensions.height - imageDimension) / 2,
-      [mq.desktop] : {
-        width: grid.col(4)
-      }
+      userSelect: "none",
+      outline: 0,
+      lineHeight: `${imageDimension}px`
     },
 
-    logo: {
-      width: imageDimension,
-      ':visited': textColor,
-      ':hover': textColor,
-      ':active': textColor
+    image:{
+      // Only one dimension has to be specified for square image
+      height: imageDimension,
+      float: "left"
     },
+
 
     initials: {
+      dispplay: "inline-block",
+      marginLeft: imageDimension + 10,
       fontFamily: 'Comic-sans',
       fontSize: '1.2rem',
       letterSpacing: '0.05rem',
-      paddingLeft: '1.0rem',
-      paddingRight: '1.0rem'
+      // paddingLeft: '1.0rem',
+      // paddingRight: '1.0rem'
     }
-}
+})
