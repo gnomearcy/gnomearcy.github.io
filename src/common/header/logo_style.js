@@ -4,8 +4,23 @@ import {header_height} from './header_style'
 import hamburgerDims from './hamburger_style'
 import {nanEvaluator} from '../../style/evaluator'
 
-const imageDimension = 36;
 const textColor = "#111";
+
+const dimensions = {
+  image: {
+    mobile: 36,
+    desktop: 36
+  },
+
+  spacing:{
+    mobile: 12,
+    desktop: 18
+  }
+}
+
+export {
+  dimensions as dims
+}
 
 export default nanEvaluator({
 
@@ -18,23 +33,25 @@ export default nanEvaluator({
       transform: "translateY(-50%)",
       userSelect: "none",
       outline: 0,
-      lineHeight: `${imageDimension}px`
+      lineHeight: `${dimensions.image.mobile}px`
     },
 
     image:{
       // Only one dimension has to be specified for square image
-      height: imageDimension,
+      height: dimensions.image.mobile,
       float: "left"
     },
 
 
     initials: {
-      dispplay: "inline-block",
-      marginLeft: imageDimension + 10,
+      display: "inline-block",
+      marginLeft: dimensions.spacing.mobile,
       fontFamily: 'Comic-sans',
       fontSize: '1.2rem',
       letterSpacing: '0.05rem',
-      // paddingLeft: '1.0rem',
-      // paddingRight: '1.0rem'
+
+      [mq.desktop]:{
+        marginLeft: dimensions.spacing.desktop
+      }
     }
 })

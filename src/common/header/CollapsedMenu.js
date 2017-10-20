@@ -46,6 +46,7 @@ class CollapsedMenu extends Component{
       var menuItem =
       <MenuItem
         index={i}
+        key={i}
         data={routes[i]}
         onLinkClick={this.linkClicked}/>
       items.push(menuItem);
@@ -69,23 +70,31 @@ class MenuItem extends React.Component{
     render(){
       let data = this.props.data;
       return(
-        <Link style={style.item}
+        <Link
+          style={style.item}
            key={"item_" + this.props.index}
            to={data.route}
            onClick={this.linkClicked}>
+
            <div style={style.item.content}
              key={"item_content_" + this.props.index}>
-             <div style={style.icon.container}>
-                <FontAwesome
-                   size={style.icon.size}
-                   className={data.icon}/>
-              </div>
-              <div
+
+             <div
+               style={style.icon.container}>
+              <FontAwesome
+                style={style.icon}
+                 size={style.icon.size}
+                 className={data.icon}/>
+             </div>
+
+               <span
                 style={style.item.label}
                 key={this.props.index}>
                   {data.visual}
-              </div>
-          </div>
+              </span>
+
+            </div>
+
         </Link>
       )
     }
@@ -100,3 +109,28 @@ MenuItem.propTypes = {
 }
 
 export default Radium(CollapsedMenu)
+
+// <Link
+//   style={style.item}
+//    key={"item_" + this.props.index}
+//    to={data.route}
+//    onClick={this.linkClicked}>
+//
+//    <div style={style.item.content}
+//      key={"item_content_" + this.props.index}>
+//
+//      <div style={style.icon.container}>
+//         <FontAwesome
+//            size={style.icon.size}
+//            className={data.icon}/>
+//       </div>
+//
+//       <div
+//         style={style.item.label}
+//         key={this.props.index}>
+//           {data.visual}
+//       </div>
+//
+//     </div>
+//
+// </Link>

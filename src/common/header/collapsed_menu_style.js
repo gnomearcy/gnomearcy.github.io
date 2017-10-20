@@ -1,7 +1,7 @@
 import routes from '../../data/routes';
 import mq from '../../style/media_queries';
 import grid from '../../style/grid'
-import headerLogo from './logo_style.js'
+import headerLogo, {dims} from './logo_style.js'
 import fontAwesomeSizeConverter from '../../util/font_awesome'
 import {colors} from './header_style'
 
@@ -27,6 +27,7 @@ export default {
     textDecoration: "none",
     textAlign: "left",
     display: "block",
+    lineHeight: `${menuItemHeight}px`,
     "-webkit-tap-highlight-color": colors.pressed,
 
     // ":hover":{
@@ -60,13 +61,13 @@ export default {
     },
 
     label: {
-      paddingLeft: headerLogo.initials.paddingLeft,
 
+      marginLeft: dims.spacing.mobile,
       // Following properties are required to center the text vertically
       // Apparently it works only for oneline text
-      display: "inline-block",
-      position: "absolute",
-      lineHeight: `${menuItemHeight}px`,
+      // display: "inline-block",
+      // position: "absolute",
+      // lineHeight: `${menuItemHeight}px`,
       color: linkColor,
       ':visited': linkColor,
       ':hover': linkColor,
@@ -75,15 +76,20 @@ export default {
   },
 
   icon:{
+    verticalAlign: "middle",
+
     container:{
       // Paints the wrapped icon to specified color
-      color: linkColor,
+      // color: linkColor,
       // Same width as the header logo to align the wrapped icon horizontally
-      width: headerLogo.logo.width,
-      display: "inline-block",
-      // Centers the FontAwesome tag (rendered as inline span by default)
+      // width: headerLogo.image.width,
+      width: dims.image.mobile,
       textAlign: "center",
-      marginTop: (menuItemHeight - headerLogo.logo.width) / 2
+      display: "inline-block",
+      color: "black"
+      // Centers the FontAwesome tag (rendered as inline span by default)
+      // textAlign: "center",
+      // marginTop: (menuItemHeight - headerLogo.image.width) / 2
     },
     size: fontAwesomeSizeConverter(iconSize)
   },
