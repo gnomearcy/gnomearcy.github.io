@@ -101,8 +101,12 @@ class Header extends Component{
   render(){
     return(
 
-      <div style={headerStyle.root}>
-        <div style={headerStyle.header}>
+      <div
+        id="header_root"
+        style={headerStyle.root}>
+        <div 
+          id="header"
+          style={headerStyle.header}>
           <Logo
             headerCallback={this.changeLinkState}/>
           <Links

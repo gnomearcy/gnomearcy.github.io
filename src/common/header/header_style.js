@@ -1,32 +1,39 @@
 import grid from '../../style/grid'
 import mq from '../../style/media_queries'
 
-const headerHeight = grid.rowHeight * 3;
+// const headerHeight = grid.rowHeight * 3;
+const header_height= {
+  mobile: grid.rowHeight * 2.5,
+  desktop: grid.rowHeight * 3
+}
 const headerBgColors= {
   normal: "rgba(204,204,204,0.8)",
   pressed: "rgba(165,165,165,0.2)"
 }
 
 export {
-  headerBgColors as colors
+  headerBgColors as colors,
+  header_height
 }
 
 export default {
 
     header: {
       width: grid.col(3),
-      height:  headerHeight,
-      display: 'inline-block',
       position: "relative",
+      margin: "0 auto",
+      height: header_height.mobile,
+
       [mq.desktop] : {
-        width: grid.maxWidth
+        width: grid.maxWidth,
+        height: header_height.desktop
       },
     },
 
 
     // Wrapper for header content that...
     root: {
-      height: headerHeight + 4,
+      height: header_height.mobile,
       // ... has its own style and dimension ...
       backgroundColor: headerBgColors.normal,
       // height: headerHeight,
@@ -41,9 +48,9 @@ export default {
       position: "fixed",
 
       // ... while centering wrapping content
-      textAlign: "center",
+      // textAlign: "center",
       [mq.desktop]:{
-        height: headerHeight
+        height: header_height.desktop
       }
     }
 }
