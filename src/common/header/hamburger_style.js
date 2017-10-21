@@ -31,5 +31,5 @@ export default {
   // Represents width / height
   // Exported for other components to know how big this one is, in case
   // they need this information for some calculation
-  // size: iconSize
+  size: iconSize
 }

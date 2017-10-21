@@ -1,7 +1,7 @@
 import typography from '../style/typefaces'
 import mq from '../style/media_queries'
 import grid from '../style/grid'
-import button from '../style/button'
+import button, {border} from '../style/button'
 
 const button_border = 1;
 
@@ -61,7 +61,9 @@ export default {
         marginBottom: grid.row(3),
 
         [mq.desktop]: {
-          width: grid.maxWidth,
+          width: grid.col(6),
+          position: "relative",
+          margin: "0 auto",
           // Fix for floating children
           // With this, the height of this wrapper is measured based on children
           overflow: "hidden",
@@ -72,9 +74,9 @@ export default {
 
     message: {
 
-        ...typography.mobile.titleText,
+        ...typography.mobile.heading1,
         ...{
-
+          textTransform: "none",
           // Mobile style
           lineHeight: `${grid.row(2)}px`,
           width: grid.col(3),
@@ -85,9 +87,9 @@ export default {
           // Desktop style
           [mq.desktop]: {
 
-            ...typography.desktop.titleText,
+            ...typography.desktop.heading2,
             ...{
-              width: grid.col(4),
+              width: grid.col(3),
               display: "inline-block",
               marginBottom: 0,
               // Horizontal text alignment
@@ -102,7 +104,7 @@ export default {
     button_desktop: {
       ...typography.desktop.body,
       ...{
-        width: grid.col(4),
+        width: grid.col(3) - 2 * border,
         height: grid.row(2) - button_border * 2,
         float: "right",
         lineHeight: `${grid.row(2)}px`,
@@ -113,34 +115,13 @@ export default {
     button_mobile:{
       ...typography.mobile.body,
       ...{
-        width: grid.col(3),
+        width: grid.col(3) - 2 * border,
         height: grid.row(2) - button_border * 2,
-        border: `${button_border}px solid black`,
-        backgroundColor: "#ccc",
-        color: "#333",
         display: "inline-block",
-
-        textDecoration: "none",
-
-        // Disable text highlighting
-        userSelect: "none",
-
         // Center text in the div
-        textAlign: "center",
         lineHeight: `${grid.row(2)}px`,
-        textTransform: "uppercase",
-        fontWeight: "bold",
-
-        ":hover":{
-          backgroundColor: "#bbb",
-          color: "#333"
-        },
-
-        ":active":{
-          backgroundColor: "#aaa",
-          color: "#111"
-        }
-      }
+      },
+      ...button
     }
   },
 }

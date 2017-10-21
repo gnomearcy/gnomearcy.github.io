@@ -28,6 +28,23 @@ const undefinedEvaluator = (p) => {
    return p;
 }
 
+const nanEvaluator = (p) => {
+   throwIfUndef(p);
+   for(var propertyName in p){
+     if(p.hasOwnProperty(propertyName)){
+       let value = p[propertyName];
+       if(value === NaN){
+         throw "Property " + propertyName + " is NaN";
+       }
+       // Test is if it's an object and recursively test it's properties
+       if(typeof value === "object"){
+         undefinedEvaluator(value);
+       }
+     }
+   }
+   return p;
+}
+
 // Checks a single number or array for any numbers that are less than 0.
 //
 // Function takes a variable amount of arguments.
@@ -70,5 +87,6 @@ function higherThanZeroEvaulator(p) {
 export {
   undefinedEvaluator,
   higherThanZeroEvaulator,
-  throwIfUndef
+  throwIfUndef,
+  nanEvaluator
 };

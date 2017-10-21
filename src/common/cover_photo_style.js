@@ -1,6 +1,6 @@
 import grid from '../style/grid'
 import mq from '../style/media_queries'
-import headerStyle from './header/header_style'
+import headerStyle, {header_height} from './header/header_style'
 import desktopPhoto from '../data/assets/home_cover_2.jpg'
 import mobilePhoto from '../data/assets/home_cover_mobile.jpg'
 import {undefinedEvaluator } from '../style/evaluator'
@@ -8,7 +8,7 @@ import {undefinedEvaluator } from '../style/evaluator'
 const label = {
   container:{
     position: "absolute",
-    marginTop: headerStyle.header.height,
+    marginTop: header_height.mobile,
     height: "100%",
     width: grid.maxWidthMobile,
     left: "50%",

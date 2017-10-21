@@ -12,16 +12,21 @@ class Section extends React.Component{
   render() {
     let projects_data = this.props["data"];
     var projects_markup = null;
+    
     if(projects_data.projects){
+
       let size = projects_data.projects.length;
       projects_markup = [];
+
       for(var i = 0; i < size; i++){
         let project = projects_data.projects[i];
         projects_markup.push(<Project key={`project-${i}`} data={project}/>);
 
          if(i % 2 == 0){
            projects_markup.push(
-              <div style={section.content.projects.horizontalDivider}></div>
+              <div
+                key={`key_divider_${i}`}
+                style={section.content.projects.horizontalDivider}/>
            )
          }
        }

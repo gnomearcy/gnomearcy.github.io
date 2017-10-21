@@ -33,6 +33,7 @@ export default class Footer extends Component{
           href={links[i].link}
           target={openInNewTab}>
           <FontAwesome
+            name="name"
             style={footerStyle.icon}
             className={links[i].icon}/>
         </a>

@@ -28,7 +28,7 @@ export default {
     textAlign: "left",
     display: "block",
     lineHeight: `${menuItemHeight}px`,
-    "-webkit-tap-highlight-color": colors.pressed,
+    WebkitTapHighlightColor: colors.pressed,
 
     // ":hover":{
     //   color: "green",

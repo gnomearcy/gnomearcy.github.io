@@ -11,6 +11,7 @@ class Hamburger extends Component{
       // component on mobile devices
       <div style={hamburger.container}>
         <FontAwesome
+          name="hamburger_icon"
           style={hamburger.icon}
           className={hamburger.icon.image}
           onClick={this.props.onClick}/>

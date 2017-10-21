@@ -16,21 +16,10 @@ const linkk = {
     textDecoration: 'none',
     fontSize: fontSize,
     letterSpacing: '0.05rem',
-    color: '#000',
+    color: 'black',
     transition: 'border 0.25s ease-out',
     textTransform: "uppercase",
-    // float: "left",
     marginLeft: "2.5rem",
-
-    ":hover":{
-      backgroundColor: "green"
-    },
-    ":active":{
-      backgroundColor: "green"
-    },
-    ":focus":{
-      backgroundColor: "green"
-    },
   },
 
   underline:{

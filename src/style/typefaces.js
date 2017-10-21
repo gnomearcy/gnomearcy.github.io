@@ -23,7 +23,7 @@ const desktop = {
   [heading2]:{
     fontFamily: "Open Sans",
     fontWeight: "bold",
-    fontSize: "18px",
+    fontSize: "20px",
     lineHeight: lh
   },
 
