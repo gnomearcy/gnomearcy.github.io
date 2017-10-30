@@ -1,4 +1,4 @@
-function ProjectObj(name, role, image){
+function ProjectObj(name, role, image, url){
   if(name === undefined || role === undefined || image === undefined){
     throw "undefined argument"
   }
@@ -14,6 +14,10 @@ function ProjectObj(name, role, image){
   this.name = name;
   this.role = role;
   this.image = image;
+
+  this.url = url;
+  // If there's an url, click on the project view will take us there
+  this.clickable = url !== undefined;
 }
 
 export default ProjectObj;

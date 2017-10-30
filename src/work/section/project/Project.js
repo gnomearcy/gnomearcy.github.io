@@ -34,7 +34,8 @@ import desktop_style from './desktop_style'
 class Project extends React.Component{
   render(){
     return (
-      <div style={{display: "inline-block"}}>
+      <div
+        style={{display: "inline-block"}}>
         <Media query={mq.mobile_query}>
             {mobile_markup_for(this.props.data)}
         </Media>
@@ -87,20 +88,28 @@ const desktop_markup_for = (project) => {
     let bgExtension = {
       backgroundImage: `url(${project.image})`
     }
-    let image_style = {...desktop_style.image, ...bgExtension};
+    let image_style = {...desktop_style.bottom_image, ...bgExtension};
 
     return(
-       <div style={desktop_style}>
-          <div style={image_style}/>
-          <div style={desktop_style.info.container}>
-            <div style={desktop_style.info.title}>
+       <a
+         href={project.url}
+         target="_blank"
+         id="project_root"
+         style={desktop_style.root}>
+          <div
+            id="image"
+            style={image_style}/>
+          <div
+            id="info_overlay"
+            style={desktop_style.top_overlay.container}>
+            <div style={desktop_style.top_overlay.title}>
                 {project.name}
             </div>
-            <div style={desktop_style.info.role}>
+            <div style={desktop_style.top_overlay.role}>
                 {project.role}
             </div>
           </div>
-        </div>
+        </a>
     );
 }
 
