@@ -60,24 +60,6 @@ const input_base = {
   padding: input_padding
 }
 
-// const button = {
-//
-//   base:{
-//     float: "right",
-//     lineHeight: `${grid.row(2)}px`,
-//
-//     userSelect: "none",
-//     border: "1px solid #b6b6b6",
-//     backgroundColor: "#eaeaea",
-//     textTransform: "uppercase",
-//     textAlign: "center",
-//
-//     ":active":{
-//       backgroundColor: "#dedede"
-//     }
-//   }
-// }
-
 
 export default {
   intro_message:{
@@ -94,7 +76,6 @@ export default {
     ...{
       [mq.desktop]:{
         width: grid.col(6),
-
         // Horizontal centering ...
         marginLeft: "auto",
         marginRight: "auto",

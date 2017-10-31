@@ -2,27 +2,14 @@ import React, { Component } from 'react';
 import Media from 'react-media'
 import Radium from 'radium'
 
-import CoverPhoto from '../common/CoverPhoto'
-import ProfilePicture from '../common/ProfilePicture'
 import Content from '../common/Content'
-import {propCreator} from '../common/CoverPhoto'
-import deskopPhoto from '../data/assets/home_cover_2.jpg'
-import mobilePhoto from '../data/assets/home_cover_mobile.jpg'
+import Title from '../common/Title'
 import ProjectGroup from './project_group/ProjectGroup'
 import data from './data/project_showcase'
 import style from './home_style'
 import mq from '../style/media_queries'
 
 class Home extends Component{
-
-  constructor(props){
-    super(props);
-    this.goToContact = this.goToContact.bind(this);
-  }
-
-  goToContact(){
-    window.alert("hello")
-  }
 
   componentDidMount() {
     window.scrollTo(0,0);
@@ -31,15 +18,8 @@ class Home extends Component{
   render(){
     return(
       <div>
-        <CoverPhoto {...propCreator(deskopPhoto, mobilePhoto)}/>
         <Content>
-
-          <span
-            id="page_title"
-            style={style.title}>
-            Check out my work...
-          </span>
-
+          <Title value="Check out my work..."/>
           <div
             id="project_info"
             style={style.info.container}>

@@ -47,8 +47,9 @@ export default {
       zIndex: 9999,
       position: "fixed",
 
-      // ... while centering wrapping content
-      // textAlign: "center",
+      // ... either when asked nicely or forced to do so.
+      top: 0,
+
       [mq.desktop]:{
         height: header_height.desktop
       }

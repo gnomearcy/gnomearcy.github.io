@@ -15,7 +15,6 @@ class Links extends Component{
   render(){
     var links = [];
 
-    // for(var i = routes.length - 1; i >= 0; i--)
     for(var i = 0, size = routes.length; i < size; i++)
     {
       var link =
@@ -44,14 +43,7 @@ class SingleLink extends Component{
     render(){
 
       let index = this.props.index;
-
-      console.log("is active - " + this.props.index);
-      console.log(this.props.isActive);
-
-      console.log(style);
       let style = this.props.isActive ? link_style.link.active : link_style.link.normal;
-      console.log("style to use for link -> " + index);
-      console.log(style);
 
       return(
         <Link

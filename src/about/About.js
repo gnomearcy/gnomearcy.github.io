@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import CoverPhoto, {propCreator} from '../common/CoverPhoto'
 import Radium from 'radium'
-import ProfilePicture from '../common/ProfilePicture'
+
 import Content from '../common/Content'
 import {skills, experience, education} from './data/ContentProvider'
-import AboutCoverPhoto from '../data/assets/about_cover.jpg'
+import Title from '../common/Title'
 
 class About extends Component{
 
@@ -15,8 +14,7 @@ class About extends Component{
   render(){
     return (
       <div>
-        <CoverPhoto {...propCreator(AboutCoverPhoto)}/>
-        <ProfilePicture title="Who I am"/>
+        <Title value="Who I am" />
         <Content>
           {skills}
           {experience}

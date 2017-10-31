@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import Radium from 'radium'
+
 import About from '../about/About';
-import CoverPhoto, {propCreator} from '../common/CoverPhoto'
-import ProfilePicture from '../common/ProfilePicture'
 import workStyle from './work_style'
-import desktopCoverPhoto from '../data/assets/work_cover.jpg'
 import Content from '../common/Content'
 import sections from './data/sections'
 import Section from './section/Section'
-import Radium from 'radium'
+import Title from '../common/Title'
 
 class Work extends Component{
 
@@ -23,20 +22,8 @@ class Work extends Component{
 
     return (
       <div>
-        <CoverPhoto {...propCreator(desktopCoverPhoto)} />
-        <ProfilePicture title="My work"/>
+        <Title value="My work"/>
         <Content style={workStyle.content}>
-          <div style={workStyle.description}>
-            Description Description
-            Description
-            Description
-            Description
-            Description
-            Description
-            Description
-            Description
-            To Do This
-          </div>
           {secs}
         </Content>
       </div>
