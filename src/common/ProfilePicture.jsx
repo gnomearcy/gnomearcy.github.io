@@ -19,7 +19,9 @@ class ProfilePicture extends React.Component{
     }
     // this.props.hasTitle => throwIfUndef(this.props.title)
     return (
-      <div style={style.root}>
+      <div
+        id="profile_picture_root"
+        style={style.root}>
         <div style={style.separator}></div>
         <div style={style.picTextContainer}>
           <div

@@ -38,7 +38,9 @@ class CoverPhoto extends React.Component{
       })
 
       return(
-        <div style={photo.container}>
+        <div
+          id="cover_photo_root"
+          style={photo.container}>
           <img style={backgroundStyle}></img>
         </div>
       )
