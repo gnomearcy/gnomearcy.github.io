@@ -4,8 +4,8 @@ import Radium from 'radium'
 import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
-import { personal_name } from '../../data/config.js'
-import { home } from '../../data/routes.js';
+import strings from '../../data/strings'
+import { home } from '../../data/routes';
 import logo_image from '../../data/assets/logo.png'
 import logoStyle from './logo_style'
 
@@ -23,10 +23,10 @@ class Logo extends Component{
                <img
                  style={logoStyle.image}
                  src={logo_image}
-                 alt="Tomislav Martinčić logo"/>
+                 alt='${strings.initials} logo'/>
                <span
                  style={logoStyle.initials}>
-                  {personal_name}
+                  {strings.initials}
                </span>
           </Link>
     )

@@ -12,7 +12,7 @@ import Links from './Links'
 import Hamburger from './Hamburger'
 
 import mq from '../../style/media_queries'
-import { personal_name } from '../../data/config';
+import strings from '../../data/strings';
 import routes, { home } from '../../data/routes';
 import grid from '../../style/grid';
 import headerStyle from './header_style'
@@ -70,9 +70,9 @@ class Header extends Component{
       // This method is triggered before render :)
 
       // https?:\/\/[\s\S]*(\/[\s\S]*)(\/)
-      const regex = new RegExp("[\s\S]*(\/[\s\S]*)")
-      let value = window.location.href;
-      let result = regex.exec(value)
+      // const regex = new RegExp("[\s\S]*(\/[\s\S]*)")
+      // let value = window.location.href;
+      // let result = regex.exec(value)
   }
 
     changeLinkState(new_index){
@@ -104,7 +104,7 @@ class Header extends Component{
       <div
         id="header_root"
         style={headerStyle.root}>
-        <div 
+        <div
           id="header"
           style={headerStyle.header}>
           <Logo

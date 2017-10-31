@@ -8,6 +8,8 @@ import footerStyle from './footer_style'
 import HorizontalCenter from './HorizontalCenter'
 import strings from '../data/strings'
 import CenterTextBlock from './CenterTextBlock'
+
+// TODO remove Aligner all together
 import Aligner from './Aligner'
 
 // Component representing bottom part of the UI.
@@ -51,7 +53,9 @@ export default class Footer extends Component{
                     {links_markup}
                   </div>
                   <div style={footerStyle.initials.container}>
-                    <span style={footerStyle.initials}>{label}</span>
+                    <span style={footerStyle.initials}>
+                      {label}
+                    </span>
                   </div>
               </Aligner>
           </HorizontalCenter>
