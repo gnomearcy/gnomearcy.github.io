@@ -12,16 +12,16 @@ export default [
   {
     visual: visual_work,
     route: work,
-    icon: "fa-cube"
+    icon: "fa-code"
   },
   {
     visual: visual_about,
     route: about,
-    icon: "fa-user-circle-o"
+    icon: "fa-user-o"
   },
   {
     visual: visual_contact,
     route: contact,
-    icon: "fa-phone"
+    icon: "fa-envelope-o"
   }
 ]
