@@ -2,6 +2,7 @@ import typography from '../../../style/typefaces'
 import mq from '../../../style/media_queries'
 import grid from '../../../style/grid'
 import base from './base_style'
+import {colors} from '../../../common/header/header_style'
 
 const layer_base = {
   width: "inherit",
@@ -38,10 +39,10 @@ export default {
       height: base.height,
       marginTop: grid.row(1),
       display: "inline-block",
-      // border: `${base.borderThickness}px solid ${base.colors.borderColor}`,
+      WebkitTapHighlightColor: colors.pressed,
     },
 
-    bottom_image: {
+    image: {
       ...layer_base,
       ...{
         // Obsolete?
@@ -49,21 +50,12 @@ export default {
       }
     },
 
-    // bottom_image: {
-    //   width: "inherit",
-    //   height: "inherit",
-    //   // backgroundPosition: "center",
-    //   backgroundRepeat: "no-repeat",
-    //   position: "absolute",
-    //   // zIndex: "-1"
-    // },
-
     top_overlay: {
-
       container:{
         ...layer_base,
         ...{
           opacity: 0,
+
           ":hover": {
             opacity: "1",
             // backgroundColor: "#ccc",

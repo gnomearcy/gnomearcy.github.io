@@ -2,26 +2,31 @@ import typography from '../../../style/typefaces'
 import mq from '../../../style/media_queries'
 import grid from '../../../style/grid'
 import base from './base_style'
+import {colors} from '../../../common/header/header_style'
 
 export default {
 
-    width: base.width,
-    marginTop: grid.row(1),
-    display: "inline-block",
-    marginBottom: grid.row(1),
+    root:{
+      width: base.width,
+      marginTop: grid.row(1),
+      display: "inline-block",
+      marginBottom: grid.row(1),
+      textDecoration: "none",
+      color: "black",
+      WebkitTapHighlightColor: colors.pressed,
+    },
 
     image: {
       width: base.width,
       height: base.height,
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      border: `${base.borderThickness}px solid ${base.colors.borderColor}`
+      // backgroundPosition: "center",
+      // backgroundRepeat: "no-repeat"
     },
 
-    info: {
-      container:{
-        width: base.width - base.borderThickness * 2
-      },
+    underlay: {
+
+      marginTop: grid.row(1) / 2,
+      width: base.width,
 
       title:{
 

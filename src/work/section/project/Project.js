@@ -54,32 +54,35 @@ const mobile_markup_for = (project) => {
   let image_style = {...mobile_style.image, ...bgExtension};
 
   return(
-     <div
+     <a
        id="project"
        key="project"
-       style={mobile_style}>
+       href={project.url}
+       style={mobile_style.root}>
         <div
           id="image"
           key="image"
           style={image_style}/>
         <div
-          id="info"
-          key="info"
-          style={mobile_style.info.container}>
-          <div
-            id="title"
-            key="title"
-            style={mobile_style.info.title}>
-              {project.name}
-          </div>
-          <div
-            id="role"
-            key="role"
-            style={mobile_style.info.role}>
-              {project.role}
-          </div>
+          id="underlay_info"
+          key="underlay_info"
+          style={mobile_style.underlay}>
+
+            <div
+              id="title"
+              key="title"
+              style={mobile_style.underlay.title}>
+                {project.name}
+            </div>
+            <div
+              id="role"
+              key="role"
+              style={mobile_style.underlay.role}>
+                {project.role}
+            </div>
+
         </div>
-      </div>
+      </a>
   );
 }
 
@@ -88,7 +91,7 @@ const desktop_markup_for = (project) => {
     let bgExtension = {
       backgroundImage: `url(${project.image})`
     }
-    let image_style = {...desktop_style.bottom_image, ...bgExtension};
+    let image_style = {...desktop_style.image, ...bgExtension};
 
     return(
        <a
