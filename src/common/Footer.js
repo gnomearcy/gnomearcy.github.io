@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Media from 'react-media'
+import Radium from 'radium'
 
 import links from '../data/social_media_links'
 import mq from '../style/media_queries'
@@ -16,7 +17,7 @@ import Aligner from './Aligner'
 // All other content components have this component as their sibling on the UI.
 const openInNewTab = "_blank";
 
-export default class Footer extends Component{
+class Footer extends Component{
   render(){
 
     var links_markup = [];
@@ -63,3 +64,5 @@ export default class Footer extends Component{
     );
   }
 }
+
+export default Radium(Footer)
