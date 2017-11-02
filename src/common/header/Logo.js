@@ -6,11 +6,12 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import strings from '../../data/strings'
 import { home } from '../../data/routes';
-import logo_image from '../../data/assets/logo.png'
+import SVGLogo from '../../data/assets/SVGLogo'
 import logoStyle from './logo_style'
 
 
 class Logo extends Component{
+
 
     render() {
       return (
@@ -20,14 +21,14 @@ class Logo extends Component{
              style={logoStyle.container}
              to={home}
              onClick={() => {this.props.headerCallback(-1)}}>
-               <img
-                 style={logoStyle.image}
-                 src={logo_image}
-                 alt='${strings.initials} logo'/>
-               <span
-                 style={logoStyle.initials}>
+             <SVGLogo
+                custom_style={{verticalAlign: "middle"}}
+                width={36}
+                height={36} />
+             <span
+                style={logoStyle.initials}>
                   {strings.initials}
-               </span>
+             </span>
           </Link>
     )
   }

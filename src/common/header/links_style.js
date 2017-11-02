@@ -7,7 +7,7 @@ const fontSize = 18;
 const underline = {
   height: 3,
   marginTop: 6,
-  color: "#ecec98"
+  color: "#2dbe60"
 }
 
 const linkk = {
