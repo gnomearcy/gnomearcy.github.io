@@ -14,7 +14,7 @@ const desktop = {
     lineHeight: lh
   },
   [heading1] : {
-    fontFamily: "Open Sans",
+    fontFamily: "Istok Web",
     fontWeight: "bold",
     fontSize: "22px",
     lineHeight: lh,
@@ -28,7 +28,7 @@ const desktop = {
   },
 
   [body]:{
-    fontFamily: "Open Sans",
+    fontFamily: "Lora",
     fontWeight: "normal",
     fontSize: "18px",
     lineHeight: lh
