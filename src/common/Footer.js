@@ -47,15 +47,24 @@ class Footer extends Component{
 
     const label = `${strings.initials}. ${strings.copyright}`;
     return(
-      <HorizontalCenter style={footerStyle.underlay}>
-          <HorizontalCenter style={footerStyle}>
+      <HorizontalCenter
+          id="horizontal_center_2"
+          style={footerStyle.underlay}>
+          
+          <HorizontalCenter
+            id="horizontal_center_2"
+            style={footerStyle}>
               <Aligner>
-                  <div>
+                  <div id="links_container">
                     {links_markup}
                   </div>
-                  <div style={footerStyle.initials.container}>
-                    <span style={footerStyle.initials}>
-                      {label}
+                  <div
+                    id="initials_container"
+                    style={footerStyle.initials.container}>
+                    <span
+                      id="initials"
+                      style={footerStyle.initials}>
+                        {label}
                     </span>
                   </div>
               </Aligner>

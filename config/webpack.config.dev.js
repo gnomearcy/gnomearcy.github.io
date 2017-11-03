@@ -207,6 +207,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(svg)(\?.*$|$)/,
+        loader: require.resolve('file-loader'),
       }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.

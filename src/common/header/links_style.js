@@ -2,13 +2,11 @@ import grid from '../../style/grid'
 import mq from '../../style/media_queries'
 import headerDims, {header_height} from './header_style'
 
-const fontSize = 18;
-
 const linkk = {
   base:{
-    fontFamily: 'Comic-sans',
+    fontFamily: 'Montserrat',
     textDecoration: 'none',
-    fontSize: fontSize,
+    fontSize: 16,
     letterSpacing: '0.05rem',
     color: 'black',
     transition: 'border 0.25s ease-out',

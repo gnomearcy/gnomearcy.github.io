@@ -7,7 +7,7 @@ const iconColor = "#111";
 
 export default {
   height: grid.rowHeight * 4,
-  width: grid.col(3),
+  // width: grid.col(3),
   display: "inline-block",
 
   icon: {
@@ -29,6 +29,7 @@ export default {
     lineHeight: "36px",
     height: "36px",
     fontSize: "24px",
+
     // Overriding "display" property of ".fa" FontAwesome class
     display: "inline-block",
 
@@ -37,7 +38,7 @@ export default {
   initials : {
     fontSize: 18,
     color: "#111",
-    fontFamily: "Comic-sans",
+    fontFamily: "Montserrat",
     container:{
       marginTop: "10px",
     }

@@ -65,7 +65,7 @@ export default {
       },
 
       title:{
-        ...typography.mobile.heading2,
+        ...typography.mobile.body,
         ...info_base
       },
 

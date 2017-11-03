@@ -74,7 +74,7 @@ export default {
 
     message: {
 
-        ...typography.mobile.heading1,
+        ...typography.mobile.body,
         ...{
           textTransform: "none",
           // Mobile style
@@ -87,7 +87,7 @@ export default {
           // Desktop style
           [mq.desktop]: {
 
-            ...typography.desktop.heading2,
+            ...typography.desktop.body,
             ...{
               width: grid.col(3),
               display: "inline-block",
@@ -108,6 +108,7 @@ export default {
         height: grid.row(2) - button_border * 2,
         float: "right",
         lineHeight: `${grid.row(2)}px`,
+        fontFamily: "Open Sans"
       },
       ...button
     },

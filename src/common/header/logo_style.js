@@ -46,8 +46,8 @@ export default nanEvaluator({
     initials: {
       display: "inline-block",
       marginLeft: dimensions.spacing.mobile,
-      fontFamily: 'Comic-sans',
-      fontSize: '1.2rem',
+      fontFamily: 'Montserrat',
+      fontSize: '17px',
       letterSpacing: '0.05rem',
 
       [mq.desktop]:{
