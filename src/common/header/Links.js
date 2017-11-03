@@ -3,27 +3,27 @@ import { Link } from 'react-router-dom';
 import Radium from 'radium'
 import PropTypes from 'prop-types'
 
-import routes from '../../data/routes.js';
+import {nav_links} from '../../data/routes.js'
 import link_style from './links_style'
+
 
 class Links extends Component{
 
-  reportToHeader = (index) => {
-    this.props.headerCallback(index)
-  }
-
   render(){
+
+    var code = this.props.activeLinkCode;
     var links = [];
 
-    for(var i = 0, size = routes.length; i < size; i++)
+    for(var i = 0, size = nav_links.length; i < size; i++)
     {
+      let link_data = nav_links[i];
       var link =
       <SingleLink
-        linkContainerHandle={this.reportToHeader}
-        index={i}
-        key={i}
-        isActive={this.props.activeLink !== undefined
-          && parseInt(this.props.activeLink) === i}/>
+        id={`nav_link_${link_data.code}_${link_data.name}`}
+        key={`nav_link_${link_data.code}_${link_data.name}`}
+        label={link_data.name}
+        href={link_data.href}
+        isActive={code !== undefined && parseInt(code) === nav_links[i].code}/>
 
       links.push(link);
     }
@@ -41,33 +41,37 @@ class Links extends Component{
 class SingleLink extends Component{
 
     render(){
-
-      let index = this.props.index;
       let style = this.props.isActive ? link_style.link.active : link_style.link.normal;
 
       return(
         <Link
-           id={`link_${index}`}
-           key={`link_${index}`}
+           id={`link_${this.props.label.toLowerCase()}`}
+           key={`link_${this.props.label.toLowerCase()}`}
            style={this.props.isActive ? link_style.link.active : link_style.link.normal}
-           to={routes[index].route}
-           onClick={() => {this.props.linkContainerHandle(this.props.index)}}
-           title={routes[index].visual}>
-              {routes[index].visual}
+           to={this.props.href}
+           title={this.props.label}>
+              {this.props.label}
          </Link>
       )
     }
 }
 
 SingleLink.propTypes = {
-  index: PropTypes.number.isRequired,
+
+  // Visual value of the link
+  label: PropTypes.string.isRequired,
+
+  // Relative link where to navigate when clicked
+  href: PropTypes.string.isRequired,
+
+  // Indicates if the link has underline visible
   isActive: PropTypes.bool.isRequired,
-  linkContainerHandle: PropTypes.func.isRequired
 }
 
 Links.propTypes = {
-  activeLink: PropTypes.string.isRequired,
-  headerCallback: PropTypes.func.isRequired
+  // Route code to determine which link should be visually marked
+  // If undefined, no children Links are are visually marked
+  activeLinkCode: PropTypes.number.isRequired,
 }
 
 export default Radium(Links)

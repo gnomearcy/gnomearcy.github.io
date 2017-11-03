@@ -9,9 +9,7 @@ import { home } from '../../data/routes';
 import SVGLogo from '../../data/assets/SVGLogo'
 import logoStyle from './logo_style'
 
-
 class Logo extends Component{
-
 
     render() {
       return (
@@ -19,8 +17,7 @@ class Logo extends Component{
              id="logo"
              key="logo"
              style={logoStyle.container}
-             to={home}
-             onClick={() => {this.props.headerCallback(-1)}}>
+             to={home.href}>
              <SVGLogo
                 custom_style={{verticalAlign: "middle"}}
                 width={36}
@@ -32,10 +29,6 @@ class Logo extends Component{
           </Link>
     )
   }
-}
-
-Logo.propTypes = {
-  headerCallback: PropTypes.func.isRequired
 }
 
 export default Radium(Logo)

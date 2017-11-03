@@ -3,8 +3,8 @@ import mq from '../../style/media_queries'
 
 // const headerHeight = grid.rowHeight * 3;
 const header_height= {
-  mobile: grid.rowHeight * 2.5,
-  desktop: grid.rowHeight * 3
+  mobile: grid.rowHeight * 1.9,
+  desktop: grid.rowHeight * 2
 }
 const headerBgColors= {
   normal: "rgba(204,204,204,0.8)",

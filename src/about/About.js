@@ -4,11 +4,13 @@ import Radium from 'radium'
 import Content from '../common/Content'
 import {skills, experience, education} from './data/ContentProvider'
 import Title from '../common/Title'
+import {about} from '../data/routes'
 
 class About extends Component{
 
   componentDidMount(){
     window.scrollTo(0,0);
+    this.props.reportTo(about.code)
   }
 
   render(){

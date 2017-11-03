@@ -8,11 +8,13 @@ import data from './data'
 import mq from '../style/media_queries'
 import Form from './Form'
 import Title from '../common/Title'
+import {contact} from '../data/routes'
 
 class Contact extends Component{
 
   componentDidMount(){
     window.scrollTo(0,0);
+    this.props.reportTo(contact.code)
   }
 
   render(){

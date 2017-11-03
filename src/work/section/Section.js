@@ -12,7 +12,7 @@ class Section extends React.Component{
   render() {
     let projects_data = this.props["data"];
     var projects_markup = null;
-    
+
     if(projects_data.projects){
 
       let size = projects_data.projects.length;

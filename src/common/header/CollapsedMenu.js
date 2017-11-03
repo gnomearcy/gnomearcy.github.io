@@ -5,26 +5,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
 import style from './collapsed_menu_style'
-import routes from '../../data/routes'
+import { nav_links } from '../../data/routes'
 import HorizontalCenter from '../HorizontalCenter'
 
 class CollapsedMenu extends Component{
-
-  constructor(props){
-    super(props);
-    this.linkClicked = this.linkClicked.bind(this);
-  }
-
-  // Function passed to all Link children so they can report back to
-  // this parent component when clicked
-  linkClicked(index){
-    if(index === undefined){
-      throw "invalid index"
-    }
-
-    // Report back to the header about new chosen index
-    this.props.headerLink(index)
-  }
 
   /*
     Unique key is required for pseudo classes to work,
@@ -33,19 +17,21 @@ class CollapsedMenu extends Component{
     item should trigger pseudo class behaviour.
   */
   render() {
-    if(this.props.showYourself === false){
+    if(this.props.show === false){
       return null;
     }
 
     var items = [];
-    for(var i = 0, size = routes.length; i < size; i++)
+    for(var i = 0, size = nav_links.length; i < size; i++)
     {
+      let data = nav_links[i];
       var menuItem =
       <MenuItem
-        index={i}
         key={i}
-        data={routes[i]}
-        onLinkClick={this.linkClicked}/>
+        icon={data.icon}
+        value={data.name}
+        href={data.href}
+        headerLink={this.props.headerLink}/>
       items.push(menuItem);
     }
 
@@ -59,35 +45,30 @@ class CollapsedMenu extends Component{
 
 class MenuItem extends React.Component{
 
-    linkClicked = () => {
-      this.props.onLinkClick(this.props.index);
-    }
-
-
     render(){
-      let data = this.props.data;
       return(
         <Link
-          style={style.item}
-           key={"item_" + this.props.index}
-           to={data.route}
-           onClick={this.linkClicked}>
+           style={style.item}
+           key={"item_" + this.props.value}
+           to={this.props.href}
+           onClick={() => this.props.headerLink()}>
 
            <div style={style.item.content}
-             key={"item_content_" + this.props.index}>
+             key={"item_content_" + this.props.value}>
 
              <div
                style={style.icon.container}>
               <FontAwesome
-                style={style.icon}
+                 style={style.icon}
+                 name={this.props.value}
                  size={style.icon.size}
-                 className={data.icon}/>
+                 className={this.props.icon}/>
              </div>
 
                <span
                 style={style.item.label}
-                key={this.props.index}>
-                  {data.visual}
+                key={`item_value_` + this.props.value}>
+                  {this.props.value}
               </span>
 
             </div>
@@ -98,11 +79,24 @@ class MenuItem extends React.Component{
 }
 
 CollapsedMenu.propTypes = {
+  // Flag indicating wether to render this component or not
+  show: PropTypes.bool.isRequired,
+
+  // Function reference link towards Header to signal open/close action
   headerLink: PropTypes.func.isRequired
 }
 
 MenuItem.propTypes = {
-  index: PropTypes.number.isRequired,
+
+  // FontAwesome string icon
+  icon: PropTypes.string.isRequired,
+
+  // Text to display in an item
+  value: PropTypes.string.isRequired,
+
+  // Function reference link towards Header to signal open/close action
+  // This is the same reference as passed in to CollapsedMenu component
+  headerLink: PropTypes.func.isRequired
 }
 
 export default Radium(CollapsedMenu)

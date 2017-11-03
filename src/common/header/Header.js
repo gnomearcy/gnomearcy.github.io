@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Media from 'react-media'
 import FontAwesome from 'react-fontawesome';
 import Radium from 'radium'
+import PropTypes from 'prop-types'
 
 // Components
 import CollapsedMenu from './CollapsedMenu'
@@ -25,11 +26,9 @@ class Header extends Component{
   constructor(props){
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.handleForCollapsedMenu = this.handleForCollapsedMenu.bind(this);
-    this.changeLinkState = this.changeLinkState.bind(this);
+    this.menuItemClick = this.menuItemClick.bind(this);
     this.state = {
       showCollapsedMenu: false,
-      chosenLink: localStorage.getItem(clickedIndex)
     }
   }
 
@@ -41,64 +40,42 @@ class Header extends Component{
     // TODO: remove this
     this.setState((prevState, props) => {
       return {
-        showCollapsedMenu: !prevState.showCollapsedMenu,
-        chosenLink: prevState.chosenLink
+        showCollapsedMenu: !prevState.showCollapsedMenu
       };
     });
   }
 
-  handleForCollapsedMenu(clicked_link_index){
-    if(clicked_link_index === undefined){
-      throw "invalid clicked link index"
-    }
-
-    localStorage.setItem(clickedIndex, clicked_link_index)
-
-    // Trigger re-render to update the UI
+  menuItemClick(){
     this.setState((prevState, props) => {
       return {
         showCollapsedMenu: !prevState.showCollapsedMenu,
-        chosenLink: clicked_link_index
       };
     });
   }
 
-  componentWillMount(){
-
-      // TODO: implement a regex to filter out the subsection
-      // such as work, about and contact and set the corresponding state
-      // This method is triggered before render :)
-
-      // https?:\/\/[\s\S]*(\/[\s\S]*)(\/)
-      // const regex = new RegExp("[\s\S]*(\/[\s\S]*)")
-      // let value = window.location.href;
-      // let result = regex.exec(value)
-  }
-
-    changeLinkState(new_index){
-
-    // TODO refactor the constant
-    // Home button
-    if(new_index === -1){
-      localStorage.removeItem(clickedIndex)
-    }
-    else{
-      localStorage.setItem(clickedIndex, new_index)
-    }
-
-    // Re-render stuff
-    let index = localStorage.getItem(clickedIndex);
-    this.setState((prevState, props) => {
-      return {
-        showCollapsedMenu: prevState.showCollapsedMenu,
-        chosenLink: index
-      };
-    });
-  }
 
   // TODO: add open/close animation
-  // TODO find a way how to close this menu when media query changes to desktop
   render(){
+
+    // Highlight can be passed in via props (by url navigation in browser)
+    // or via a click on one of the links in the header
+    let highlight;
+    if(this.state.chosenLink){
+      // State has precedence over Route matching since it's user initiated action
+      // This means that the user has clicked on the link in nav bar
+      highlight = this.state.chosenLink
+    } else {
+      // Props are passed in via Route matching
+      highlight = this.props.highlight;
+    }
+
+    console.log("Header render");
+    console.log("state ->");
+    console.log(this.state);
+    console.log("props ->");
+    console.log(this.props);
+    console.log(highlight);
+
     return(
 
       <div
@@ -107,19 +84,20 @@ class Header extends Component{
         <div
           id="header"
           style={headerStyle.header}>
-          <Logo
-            headerCallback={this.changeLinkState}/>
-          <Links
-            headerCallback={this.changeLinkState}
-            activeLink={this.state.chosenLink}/>
-          <Hamburger onClick={this.toggleMenu}/>
+            <Logo />
+            <Links activeLinkCode={highlight} />
+            <Hamburger onClick={this.toggleMenu}/>
         </div>
         <CollapsedMenu
-          showYourself={this.state.showCollapsedMenu}
-          headerLink={this.handleForCollapsedMenu}/>
+          headerLink={this.menuItemClick}
+          show={this.state.showCollapsedMenu}/>
       </div>
     )
   }
+}
+
+Header.propTypes = {
+  highlight: PropTypes.number.isRequired
 }
 
 export default Radium(Header)

@@ -4,12 +4,6 @@ import headerDims, {header_height} from './header_style'
 
 const fontSize = 18;
 
-const underline = {
-  height: 3,
-  marginTop: 6,
-  color: "#2dbe60"
-}
-
 const linkk = {
   base:{
     fontFamily: 'Comic-sans',
@@ -23,7 +17,7 @@ const linkk = {
   },
 
   underline:{
-    borderBottom: "3px solid #ecec98",
+    borderBottom: `3px solid #2dbe60`,
     paddingBottom: "2px",
     marginTop: "2px"
   }

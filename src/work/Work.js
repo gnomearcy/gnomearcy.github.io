@@ -8,11 +8,17 @@ import Content from '../common/Content'
 import sections from './data/sections'
 import Section from './section/Section'
 import Title from '../common/Title'
+import {work} from '../data/routes'
 
 class Work extends Component{
 
   componentDidMount(){
     window.scrollTo(0,0);
+    this.props.reportTo(work.code)
+  }
+
+  componentWillMount(){
+    console.log("WIll mount work");
   }
 
   render(){

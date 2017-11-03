@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Switch, Route, HashRouter, BrowserRouter} from 'react-router-dom'
-
+import PropTypes from 'prop-types'
 import Media from 'react-media'
 import Radium, {StyleRoot} from 'radium'
 
@@ -15,7 +15,7 @@ import NotFound from '../common/NotFound'
 import Header from '../common/header/Header';
 import Footer from '../common/Footer'
 
-import routes from '../data/routes'
+import {home, work, about, contact} from '../data/routes'
 
 // This is the wrapper for navigation in header section and the content section
 // It is the root component being rendered via the ReactDOM.render() method.
@@ -35,25 +35,60 @@ class LayoutRoot extends Component {
     return(
       <StyleRoot>
         <HashRouter>
-          <div>
-            <Header/>
-            <div>
-              <div>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/work' component={Work} />
-                  <Route exact path='/about' component={About} />
-                  <Route exact path="/contact" component={Contact}/>
-              </div>
-              <Footer />
-            </div>
-          </div>
+          <FeatureToHeaderConnection />
         </HashRouter>
       </StyleRoot>
     );
   }
 }
 
-// <Route exact path="*" component={NotFound}/>
 
+
+class FeatureToHeaderConnection extends React.Component{
+
+  constructor(props){
+    super(props)
+    this.featureLoaded = this.featureLoaded.bind(this)
+    this.state = {
+      // Home feature is first loaded
+      highlight: home.code
+    }
+  }
+
+  featureLoaded(chosen_feature){
+
+    console.log("Chosen feature");
+    console.log(chosen_feature);
+    if(chosen_feature === undefined || typeof chosen_feature !== "number"){
+      throw "Cannot determine the feature";
+      return
+    }
+
+    this.setState((prevState, props) => {
+      return {
+        highlight: chosen_feature
+      };
+    });
+  }
+
+  render(){
+    return(
+      <div>
+        <Header highlight={this.state.highlight}/>
+        <div>
+          <div>
+            <Route exact path={home.href} render={() => <Home reportTo={this.featureLoaded}/>} />
+            <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />
+            <Route exact path={about.href}  render={() => <About reportTo={this.featureLoaded}/>}/>
+            <Route exact path={contact.href} render={() => <Contact reportTo={this.featureLoaded}/>}/>
+          </div>
+          <Footer />
+        </div>
+      </div>
+    )
+  }
+}
+
+// <Route exact path="*" component={NotFound}/>
 // Only export the Root (wrapper) for usage outside of this file.
 export default Radium(LayoutRoot);

@@ -8,11 +8,13 @@ import ProjectGroup from './project_group/ProjectGroup'
 import data from './data/project_showcase'
 import style from './home_style'
 import mq from '../style/media_queries'
+import {home} from '../data/routes'
 
 class Home extends Component{
 
   componentDidMount() {
     window.scrollTo(0,0);
+    this.props.reportTo(home.code)
   }
 
   render(){
