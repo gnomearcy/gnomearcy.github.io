@@ -8,27 +8,27 @@ const lh = `${grid.row(1)}px`
 
 const desktop = {
   [titleText]:{
-    fontFamily : "Roboto",
+    fontFamily : "Montserrat",
     fontSize: "32px",
     fontWeight: "bolder",
     lineHeight: lh
   },
   [heading1] : {
-    fontFamily: "Istok Web",
+    fontFamily: "Montserrat",
     fontWeight: "bold",
     fontSize: "22px",
     lineHeight: lh,
     textTransform: "uppercase"
   },
   [heading2]:{
-    fontFamily: "Open Sans",
+    fontFamily: "Montserrat",
     fontWeight: "bold",
     fontSize: "20px",
     lineHeight: lh
   },
 
   [body]:{
-    fontFamily: "Lora",
+    fontFamily: "Open Sans",
     fontWeight: "normal",
     fontSize: "18px",
     lineHeight: lh
@@ -37,20 +37,20 @@ const desktop = {
 
 const mobile = {
   [titleText]:{
-    fontFamily : "Roboto",
+    fontFamily : "Montserrat",
     fontSize: "32px",
     fontWeight: "bolder",
     lineHeight: lh
   },
   [heading1] : {
-    fontFamily: "Open Sans",
+    fontFamily: "Montserrat",
     fontWeight: "bold",
     fontSize: "22px",
     lineHeight: lh,
     textTransform: "uppercase"
   },
   [heading2]:{
-    fontFamily: "Open Sans",
+    fontFamily: "Montserrat",
     fontWeight: "bold",
     fontSize: "18px",
     lineHeight: lh
