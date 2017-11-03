@@ -5,7 +5,7 @@ import headerLogo, {dims} from './logo_style.js'
 import fontAwesomeSizeConverter from '../../util/font_awesome'
 import {colors} from './header_style'
 
-const iconSize = 32;
+const iconSize = 36;
 const menuItemHeight = 70;
 const linkColor = "#111";
 
@@ -30,44 +30,19 @@ export default {
     lineHeight: `${menuItemHeight}px`,
     WebkitTapHighlightColor: colors.pressed,
 
-    // ":hover":{
-    //   color: "green",
-    //   backgroundColor: "yellow"
-    // },
-    // ":active":{
-    //   color: "green",
-    //   backgroundColor: "yellow"
-    // },
-    // ":focus":{
-    //   color: "green",
-    //   backgroundColor: "green"
-    // },
-    // ":checked":{
-    //   color: "green",
-    //   backgroundColor: "green"
-    // },
-    // ":enabled":{
-    //   color: "green",
-    //   backgroundColor: "green"
-    // },
-    // ":visited":{
-    //   color: "green",
-    //   backgroundColor: "green"
-    // },
-
     content:{
       width: grid.maxWidthMobile,
       margin: "0 auto",
+      position: "relative"
     },
 
     label: {
 
-      marginLeft: dims.spacing.mobile,
-      // Following properties are required to center the text vertically
-      // Apparently it works only for oneline text
-      // display: "inline-block",
-      // position: "absolute",
-      // lineHeight: `${menuItemHeight}px`,
+      fontFamily: "Montserrat",
+      fontSize: 16,
+      marginLeft: iconSize + dims.spacing.mobile,
+      lineHeight: `${menuItemHeight}px`,
+
       color: linkColor,
       ':visited': linkColor,
       ':hover': linkColor,
@@ -76,21 +51,19 @@ export default {
   },
 
   icon:{
-    verticalAlign: "middle",
+    // verticalAlign: "middle",
+    color: "black",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: iconSize,
+    height: iconSize,
+    lineHeight: `${iconSize}px`,
 
-    container:{
-      // Paints the wrapped icon to specified color
-      // color: linkColor,
-      // Same width as the header logo to align the wrapped icon horizontally
-      // width: headerLogo.image.width,
-      width: dims.image.mobile,
-      textAlign: "center",
-      display: "inline-block",
-      color: "black"
-      // Centers the FontAwesome tag (rendered as inline span by default)
-      // textAlign: "center",
-      // marginTop: (menuItemHeight - headerLogo.image.width) / 2
-    },
-    size: fontAwesomeSizeConverter(iconSize)
+    // Centers the icon horizontally since it's always a bit smaller than
+    // specified width
+    textAlign: "center",
+
+    size: fontAwesomeSizeConverter(iconSize - (iconSize % 16))
   },
 }

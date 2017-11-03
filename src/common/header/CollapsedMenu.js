@@ -53,26 +53,23 @@ class MenuItem extends React.Component{
            to={this.props.href}
            onClick={() => this.props.headerLink()}>
 
-           <div style={style.item.content}
-             key={"item_content_" + this.props.value}>
+           <div
+              id="item_content "
+              style={style.item.content}
+              key={"item_content_" + this.props.value}>
 
-             <div
-               style={style.icon.container}>
               <FontAwesome
                  style={style.icon}
                  name={this.props.value}
                  size={style.icon.size}
                  className={this.props.icon}/>
-             </div>
 
                <span
                 style={style.item.label}
                 key={`item_value_` + this.props.value}>
                   {this.props.value}
               </span>
-
             </div>
-
         </Link>
       )
     }
