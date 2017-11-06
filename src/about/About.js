@@ -10,7 +10,7 @@ class About extends Component{
 
   componentDidMount(){
     window.scrollTo(0,0);
-    this.props.reportTo(about.code)
+    // this.props.reportTo(about.code)
   }
 
   render(){

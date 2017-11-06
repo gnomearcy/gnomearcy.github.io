@@ -14,11 +14,7 @@ class Work extends Component{
 
   componentDidMount(){
     window.scrollTo(0,0);
-    this.props.reportTo(work.code)
-  }
-
-  componentWillMount(){
-    console.log("WIll mount work");
+    // this.props.reportTo(work.code)
   }
 
   render(){

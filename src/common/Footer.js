@@ -50,7 +50,7 @@ class Footer extends Component{
       <HorizontalCenter
           id="horizontal_center_2"
           style={footerStyle.underlay}>
-          
+
           <HorizontalCenter
             id="horizontal_center_2"
             style={footerStyle}>
@@ -74,4 +74,11 @@ class Footer extends Component{
   }
 }
 
+
+// Footer.propTypes = {
+//
+//   // Indicats if the Footer should stay stick to the viewport bottom if the content
+//   // above it is not high enough to push footer down
+//   sticky: PropTypes.bool.isRequired
+// }
 export default Radium(Footer)

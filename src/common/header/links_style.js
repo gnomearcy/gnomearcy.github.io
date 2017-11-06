@@ -25,7 +25,9 @@ export default {
 
       linkContainer: {
         display: "none",
+        
         [mq.desktop]: {
+          userSelect: "none",
           display: "inline-block",
           // lineHeight: `${header_height.desktop}px`,
           float: "right",

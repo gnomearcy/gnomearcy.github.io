@@ -14,7 +14,7 @@ class Home extends Component{
 
   componentDidMount() {
     window.scrollTo(0,0);
-    this.props.reportTo(home.code)
+    // this.props.reportTo(home.code)
   }
 
   render(){
@@ -22,17 +22,6 @@ class Home extends Component{
       <div>
         <Content>
           <Title value="Check out my work..."/>
-          <div
-            id="project_info"
-            style={style.info.container}>
-            <ProjectGroup
-              key="project_0"
-              data={data[0]}/>
-            <div style={style.info.separator}/>
-            <ProjectGroup
-              key="project_1"
-              data={data[1]}/>
-          </div>
 
           <div
             id="contact"

@@ -12,7 +12,7 @@ const internal_style = {
     ...typography.mobile.titleText,
     ...{
       textAlign: "center",
-      marginTop: header_height.mobile + grid.row(3),
+      paddingTop: header_height.mobile + grid.row(3),
       width: "100%",
       height: grid.row(1),
       marginBottom: grid.row(2)
@@ -22,7 +22,7 @@ const internal_style = {
       ...typography.desktop.titleText,
       ...{
         // Copy same properties as on mobile version
-        marginTop: header_height.desktop + grid.row(3)
+        paddingTop: header_height.desktop + grid.row(3)
       }
     }
 }
