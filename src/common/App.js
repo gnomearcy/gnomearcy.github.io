@@ -15,7 +15,7 @@ import NotFound from '../common/NotFound'
 import Header from '../common/header/Header';
 import Footer from '../common/Footer'
 
-import {home, work, about, contact} from '../data/routes'
+import {work, about, contact} from '../data/routes'
 
 // This is the wrapper for navigation in header section and the content section
 // It is the root component being rendered via the ReactDOM.render() method.
@@ -28,7 +28,7 @@ class App extends Component {
     this.featureLoaded = this.featureLoaded.bind(this)
     this.state = {
       // Home feature is first loaded
-      highlight: home.code
+      highlight: about.code
     }
   }
 
@@ -56,7 +56,6 @@ class App extends Component {
             <Header highlight={this.state.highlight}/>
             <div>
               <div>
-                <Route exact path={home.href} render={() => <Home reportTo={this.featureLoaded}/>} />
                 <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />
                 <Route exact path={about.href}  render={() => <About reportTo={this.featureLoaded}/>}/>
                 <Route exact path={contact.href} render={() => <Contact reportTo={this.featureLoaded}/>}/>

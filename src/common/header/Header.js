@@ -33,7 +33,10 @@ class Header extends Component{
   }
 
   toggleMenu(e){
-    e.preventDefault();
+    if(e !== undefined){
+      e.preventDefault();
+    }
+
     // Set completely new state with setState API, don't fiddle with current state
     // that was set in the constructor
     // this.setState({ showCollapsedMenu: !this.state.showCollapsedMenu});
@@ -84,7 +87,7 @@ class Header extends Component{
         <div
           id="header"
           style={headerStyle.header}>
-            <Logo />
+            <Logo onClick={this.toggleMenu}/>
             <Links activeLinkCode={highlight} />
             <Hamburger onClick={this.toggleMenu}/>
         </div>

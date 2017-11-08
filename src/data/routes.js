@@ -1,13 +1,3 @@
-// export const home = "/";
-// const work = "/work";
-// const about = "/about"
-// const contact = "/contact";
-
-// Visible names of the routes in the navigation bar (header)
-// const visual_work = "Work";
-// const visual_about = "About";
-// const visual_contact = "Contact";
-
 function Feature(name, code, href, icon){
   this.name = name
   this.code = code
@@ -16,18 +6,18 @@ function Feature(name, code, href, icon){
 }
 
 const route_mapping = {
-  HOME: 0,
-  WORK: 1,
-  ABOUT: 2,
+  ABOUT: 1,
+  WORK: 2,
   CONTACT: 3
 }
 
-const home = new Feature(
-  "Home",
-  route_mapping.HOME,
-  "/",
-  undefined
-)
+// const home = new Feature(
+//   "Home",
+//   route_mapping.HOME,
+//   "/",
+//   undefined
+// )
+
 const work = new Feature(
   "Work",
   route_mapping.WORK,
@@ -38,7 +28,7 @@ const work = new Feature(
 const about = new Feature(
   "About",
   route_mapping.ABOUT,
-  "/about",
+  "/",
   "fa-user-o"
 )
 
@@ -50,16 +40,19 @@ const contact = new Feature(
 )
 
 const routes = [
-  home,
   work,
   about,
   contact
 ]
 
 const nav_links = [
-  work, about, contact
+  work, contact
 ]
+
+const main_route = about.href;
+
 export {
-    home, work, about, contact,
-    routes, nav_links
+    work, about, contact,
+    routes, nav_links,
+    main_route
 }
