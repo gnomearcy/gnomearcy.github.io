@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Radium from 'radium'
 
 import Content from '../common/Content'
-import {skills, experience, education} from './data/ContentProvider'
 import Title from '../common/Title'
+import HeroPhoto from './HeroPhoto'
+import {skills, experience, education} from './data/ContentProvider'
 import {about} from '../data/routes'
 
 class About extends Component{
@@ -15,7 +16,8 @@ class About extends Component{
 
   render(){
     return (
-      <div>
+      <div id="about_root">
+        <HeroPhoto />
         <Title value="Who I am" />
         <Content>
           {skills}
@@ -23,6 +25,7 @@ class About extends Component{
           {education}
         </Content>
       </div>
+
     );
   }
 }
