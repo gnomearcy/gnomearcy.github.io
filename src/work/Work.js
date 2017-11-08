@@ -17,10 +17,6 @@ class Work extends Component{
     this.props.reportTo(work.code)
   }
 
-  componentWillMount(){
-    console.log("WIll mount work");
-  }
-
   render(){
     const secs = sections.map((section_data, index) => {
       return <Section key={`section${index}`} data={section_data}/>

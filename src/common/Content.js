@@ -6,6 +6,7 @@ import Radium from 'radium'
 const style={
     width: grid.maxWidthMobile,
     // Horizontally centers a relative div
+    position: "relative",
     margin: "0 auto",
     height: "100%",
 
@@ -17,8 +18,10 @@ const style={
 class Content extends React.Component{
   render() {
     return (
-      <div style={{...style,...this.props.style}}>
-        {this.props.children}
+      <div
+        id="content_element"
+        style={{...style,...this.props.style}}>
+          {this.props.children}
       </div>
     );
   }

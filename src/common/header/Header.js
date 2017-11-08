@@ -70,11 +70,11 @@ class Header extends Component{
     }
 
     console.log("Header render");
-    console.log("state ->");
-    console.log(this.state);
-    console.log("props ->");
-    console.log(this.props);
-    console.log(highlight);
+    // console.log("state ->");
+    // console.log(this.state);
+    // console.log("props ->");
+    // console.log(this.props);
+    // console.log(highlight);
 
     return(
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import LayoutRoot from './common/LayoutRoot';
+import App from './common/App';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 // Render the first component
-ReactDOM.render(<LayoutRoot/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
