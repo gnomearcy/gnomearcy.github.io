@@ -6,6 +6,10 @@ export const linkedin = "http://www.linkedin.com/in/tomislav-martincic"
 
 const hoverColor = "hoverColor";
 
+export {
+  hoverColor as hoverColorKey
+}
+
 export default [
   {
     link: facebook,

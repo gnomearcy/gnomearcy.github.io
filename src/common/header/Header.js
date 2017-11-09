@@ -72,13 +72,6 @@ class Header extends Component{
       highlight = this.props.highlight;
     }
 
-    console.log("Header render");
-    // console.log("state ->");
-    // console.log(this.state);
-    // console.log("props ->");
-    // console.log(this.props);
-    // console.log(highlight);
-
     return(
 
       <div

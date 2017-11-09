@@ -5,46 +5,75 @@ import fontAwesomeSizeConverter from '../util/font_awesome'
 const iconSize = 32;
 const iconColor = "#111";
 
+const linkHoverGenerator = (color) => {
+  return {
+    ":hover": {
+      color: `${color}`,
+      transform: "scale(1.2)"
+    }
+  }
+}
+
+
+export {
+  linkHoverGenerator
+}
+
 export default {
+
+  width: "100%",
   height: grid.rowHeight * 4,
-  // width: grid.col(3),
   display: "inline-block",
+  backgroundColor: "#ccc",
+  position: "relative",
 
-  icon: {
-    // Global measurements
-    horizontalSpacing : "10px",
-
-    container: {
-      width: "36px",
-      height: "36px",
-      // color: iconColor,
-      textAlign: "center",
-      backgroundColor: "white",
-      borderRadius: "50%",
-      display: "inline-block",
-    },
-
-    // TODO: Add hover pseudoelements
-    color: "black",
-    lineHeight: "36px",
-    height: "36px",
-    fontSize: "24px",
-
-    // Overriding "display" property of ".fa" FontAwesome class
+  content:{
     display: "inline-block",
-
+    top: "50%",
+    left: "50%",
+    position: "absolute",
+    transform: "translateY(-50%) translateX(-50%)",
+    width: "100%"
   },
 
-  initials : {
-    fontSize: 18,
-    color: "#111",
-    fontFamily: "Montserrat",
-    container:{
-      marginTop: "10px",
+  icons: {
+    // Global measurements
+    horizontalSpacing : "10px",
+    textAlign: "center",
+
+    icon:{
+      fontSize: "27px",
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translateX(-50%) translateY(-50%)",
+
+      container: {
+        color: "black",
+        width: "36px",
+        height: "36px",
+        // color: iconColor,
+        textAlign: "center",
+        backgroundColor: "white",
+        borderRadius: "50%",
+        display: "inline-block",
+        position: "relative",
+
+        // For scale up on hover
+        transition: "all 0.2 ease-in",
+
+      }
     }
   },
 
-  underlay:{
-    backgroundColor: "#ccc"
+  initials:{
+
+    fontSize: 18,
+    color: "#111",
+    fontFamily: "Montserrat",
+    marginTop: "10px",
+    display: "inline-block",
+    width: "100%",
+    textAlign: "center"
   }
 }

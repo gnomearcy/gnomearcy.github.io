@@ -33,9 +33,6 @@ class App extends Component {
   }
 
   featureLoaded(chosen_feature){
-
-    console.log("Chosen feature");
-    console.log(chosen_feature);
     if(chosen_feature === undefined || typeof chosen_feature !== "number"){
       throw "Cannot determine the feature";
       return
@@ -57,7 +54,7 @@ class App extends Component {
             <div>
               <div>
                 <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />
-                <Route exact path={about.href}  render={() => <About reportTo={this.featureLoaded}/>}/>
+                <Route exact path={about.href} render={() => <About reportTo={this.featureLoaded}/>}/>
                 <Route exact path={contact.href} render={() => <Contact reportTo={this.featureLoaded}/>}/>
               </div>
               <Footer />
@@ -68,6 +65,7 @@ class App extends Component {
     );
   }
 }
+
 
 // <Route exact path="*" component={NotFound}/>
 // Only export the Root (wrapper) for usage outside of this file.

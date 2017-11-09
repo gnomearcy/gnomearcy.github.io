@@ -3,9 +3,9 @@ import FontAwesome from 'react-fontawesome';
 import Media from 'react-media'
 import Radium from 'radium'
 
-import links from '../data/social_media_links'
+import links, { hoverColorKey } from '../data/social_media_links'
 import mq from '../style/media_queries'
-import footerStyle from './footer_style'
+import footerStyle, {linkHoverGenerator} from './footer_style'
 import HorizontalCenter from './HorizontalCenter'
 import strings from '../data/strings'
 import CenterTextBlock from './CenterTextBlock'
@@ -23,21 +23,29 @@ class Footer extends Component{
     var links_markup = [];
     for(var i = 0, amount = links.length; i < amount; i++){
 
-      let finalStyle = {...footerStyle.icon.container}
+      // Icon container style
+      let finalStyle = {
+        ...footerStyle.icons.icon.container,
+        ...linkHoverGenerator(links[i][hoverColorKey])
+      }
       if(i !== 0){
         // Add margin to all icons except first to create horizontal whitespace
-        finalStyle = {...finalStyle,...{marginLeft: footerStyle.icon.horizontalSpacing}}
+        finalStyle = {
+          ...finalStyle,
+          ...{marginLeft: footerStyle.icons.horizontalSpacing}
+          }
       }
 
       var single_link =
         <a
+          id={`link_${i}`}
           key={i}
           style={finalStyle}
           href={links[i].link}
           target={openInNewTab}>
           <FontAwesome
             name="name"
-            style={footerStyle.icon}
+            style={footerStyle.icons.icon}
             className={links[i].icon}/>
         </a>
 
@@ -47,29 +55,24 @@ class Footer extends Component{
 
     const label = `${strings.initials}. ${strings.copyright}`;
     return(
-      <HorizontalCenter
-          id="horizontal_center_2"
-          style={footerStyle.underlay}>
-          
-          <HorizontalCenter
-            id="horizontal_center_2"
-            style={footerStyle}>
-              <Aligner>
-                  <div id="links_container">
-                    {links_markup}
-                  </div>
-                  <div
-                    id="initials_container"
-                    style={footerStyle.initials.container}>
-                    <span
-                      id="initials"
-                      style={footerStyle.initials}>
-                        {label}
-                    </span>
-                  </div>
-              </Aligner>
-          </HorizontalCenter>
-      </HorizontalCenter>
+      <div
+        id="footer"
+        style={footerStyle}>
+        <div
+          id="content"
+          style={footerStyle.content}>
+          <div
+            id="links"
+            style={footerStyle.icons}>
+            {links_markup}
+          </div>
+          <span
+            id="initials"
+            style={footerStyle.initials}>
+              {label}
+          </span>
+        </div>
+      </div>
     );
   }
 }
