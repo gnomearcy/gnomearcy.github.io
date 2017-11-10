@@ -6,7 +6,7 @@ import Content from '../common/Content'
 import style from './contact_style'
 import data from './data'
 import mq from '../style/media_queries'
-import Form from './Form'
+import Form from './form/Form'
 import Title from '../common/Title'
 import {contact} from '../data/routes'
 

@@ -9,7 +9,7 @@ const linkk = {
     fontSize: 16,
     letterSpacing: '0.05rem',
     color: 'black',
-    transition: 'border 0.25s ease-out',
+    // transition: 'border 0.25s ease-out',
     textTransform: "uppercase",
     marginLeft: "2.5rem",
   },
