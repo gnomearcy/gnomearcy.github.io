@@ -19,28 +19,32 @@ import grid from '../../style/grid';
 import headerStyle from './header_style'
 import HorizontalCenter from '../HorizontalCenter'
 
-const clickedIndex = "clicked_index"
-
 class Header extends Component{
 
   constructor(props){
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.menuItemClick = this.menuItemClick.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
     this.state = {
       showCollapsedMenu: false,
     }
+  }
+
+  closeMenu(e){
+    if(e !== undefined){
+      e.preventDefault();
+    }
+    this.setState({
+        showCollapsedMenu: false,
+    });
   }
 
   toggleMenu(e){
     if(e !== undefined){
       e.preventDefault();
     }
-
     // Set completely new state with setState API, don't fiddle with current state
     // that was set in the constructor
-    // this.setState({ showCollapsedMenu: !this.state.showCollapsedMenu});
-    // TODO: remove this
     this.setState((prevState, props) => {
       return {
         showCollapsedMenu: !prevState.showCollapsedMenu
@@ -48,16 +52,6 @@ class Header extends Component{
     });
   }
 
-  menuItemClick(){
-    this.setState((prevState, props) => {
-      return {
-        showCollapsedMenu: !prevState.showCollapsedMenu,
-      };
-    });
-  }
-
-
-  // TODO: add open/close animation
   render(){
 
     // Highlight can be passed in via props (by url navigation in browser)
@@ -80,12 +74,12 @@ class Header extends Component{
         <div
           id="header"
           style={headerStyle.header}>
-            <Logo onClick={this.toggleMenu}/>
+            <Logo onClick={this.closeMenu}/>
             <Links activeLinkCode={highlight} />
             <Hamburger onClick={this.toggleMenu}/>
         </div>
         <CollapsedMenu
-          headerLink={this.menuItemClick}
+          headerLink={this.closeMenu}
           show={this.state.showCollapsedMenu}/>
       </div>
     )
