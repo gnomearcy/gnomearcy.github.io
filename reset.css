@@ -13,3 +13,11 @@ body {
   height: 100%;
   position: absolute
 }
+
+#root{
+  /*
+    Solves the floating footer problem.
+    See App component for more information
+  */
+  height: 100%;
+}
