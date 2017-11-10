@@ -7,12 +7,12 @@ import grid from '../style/grid'
 import mq from '../style/media_queries'
 import typography from '../style/typefaces'
 
-const internal_style = {
+const default_style = {
 
     ...typography.mobile.titleText,
     ...{
       textAlign: "center",
-      marginTop: header_height.mobile + grid.row(3),
+      // paddingTop: header_height.mobile + grid.row(3),
       width: "100%",
       height: grid.row(1),
       marginBottom: grid.row(2)
@@ -22,7 +22,7 @@ const internal_style = {
       ...typography.desktop.titleText,
       ...{
         // Copy same properties as on mobile version
-        marginTop: header_height.desktop + grid.row(3)
+        // paddingTop: header_height.desktop + grid.row(3)
       }
     }
 }
@@ -30,7 +30,7 @@ const internal_style = {
 class Title extends React.Component{
   render(){
     return(
-      <div style={internal_style}>
+      <div style={{...this.props.injectedStyle, ...default_style}}>
         {this.props.value}
       </div>
     )
@@ -38,7 +38,10 @@ class Title extends React.Component{
 }
 
 Title.propTypes = {
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+
+  // Custom style to inject
+  injectedStyle: PropTypes.object
 }
 
 export default Radium(Title)

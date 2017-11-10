@@ -1,8 +1,13 @@
 import typography from '../style/typefaces'
 import mq from '../style/media_queries'
 import grid from '../style/grid'
+import {header_height} from '../common/header/header_style'
 
 export default {
+  container:{
+    paddingTop: header_height.mobile + grid.row(3)
+  },
+
   intro_message:{
     ...typography.mobile.body,
 

@@ -20,21 +20,18 @@ class Contact extends Component{
   render(){
 
     return(
-      <div>
-        <Title value="Let's connect"/>
-        <Content>
-            <div style={style.intro_message}>
-              {data.intro_message}
-            </div>
+        <Content style={style.container}>
+          <Title value="Let's connect"/>
+          <div style={style.intro_message}>
+            {data.intro_message}
+          </div>
 
-            <Form />
+          <Form />
 
-            <div style={style.outro_message}>
-              {data.outro_message}
-            </div>
-
+          <div style={style.outro_message}>
+            {data.outro_message}
+          </div>
         </Content>
-      </div>
     );
   };
 }

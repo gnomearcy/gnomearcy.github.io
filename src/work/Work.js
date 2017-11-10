@@ -23,12 +23,10 @@ class Work extends Component{
     })
 
     return (
-      <div>
-        <Title value="My work"/>
         <Content style={workStyle.content}>
+          <Title value="My work"/>
           {secs}
         </Content>
-      </div>
     );
   }
 }

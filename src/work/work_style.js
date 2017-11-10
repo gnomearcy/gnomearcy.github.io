@@ -1,10 +1,12 @@
 import typography from '../style/typefaces'
 import mq from '../style/media_queries'
 import grid from '../style/grid'
+import {header_height} from '../common/header/header_style'
 
 export default {
   content:{
-      marginBottom: grid.row(3)
+      marginBottom: grid.row(3),
+      paddingTop: header_height.mobile + grid.row(3)
   },
 
   description:{
@@ -17,9 +19,9 @@ export default {
       [mq.desktop]:
       {
         ...{
-              width: grid.maxWidth,
-              marginBottom: grid.row(1)
-            },
+          width: grid.maxWidth,
+          marginBottom: grid.row(1)
+        },
         ...typography.desktop.body
       }
     }

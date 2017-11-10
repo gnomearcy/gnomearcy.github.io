@@ -1,10 +1,10 @@
-
-import typo from '../style/typefaces'
-import evaluator from '../style/evaluator'
-import grid from '../style/grid'
-import mq from '../style/media_queries'
+import typo from '../../style/typefaces'
+import evaluator from '../../style/evaluator'
+import grid from '../../style/grid'
+import mq from '../../style/media_queries'
 
 export default {
+
   root: {
     borderTop: "1px solid #ccc",
 

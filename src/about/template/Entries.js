@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
-import template from '../template_style'
+import RequireProps from 'react-require-props'
 import Radium from 'radium'
+
+import template from './template_style'
 import {throwIfUndef} from '../../style/evaluator'
 import { section_title, entries, entry_title, entry_body} from '../data/keys'
 import Entry from './Entry'
-import RequireProps from 'react-require-props'
 
 class Entries extends React.Component {
 
