@@ -13,9 +13,16 @@ import DebugGrid from '../common/DebugGrid'
 import NotFound from '../common/NotFound'
 
 import Header from '../common/header/Header';
-import Footer from '../common/Footer'
+import Footer from './Footer'
+import {footer_height} from './footer_style'
 
 import {work, about, contact} from '../data/routes'
+
+// Style applied on all parents of the Content block so the Footer doesn't flow
+// in middle of the page if there is not enough content
+const height = {
+  height: "100%"
+}
 
 // This is the wrapper for navigation in header section and the content section
 // It is the root component being rendered via the ReactDOM.render() method.
@@ -47,18 +54,21 @@ class App extends Component {
 
   render(){
     return(
-      <StyleRoot>
-        <HashRouter>
-          <div id="app_content">
+      <StyleRoot id="style_root" style={height}>
+        <HashRouter id="router" style={height}>
+          <div id="app_content" style={height}>
             <Header highlight={this.state.highlight}/>
-            <div id="route_footer_container">
-              <div id="routes">
-                <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />
-                <Route exact path={about.href} render={() => <About reportTo={this.featureLoaded}/>}/>
-                <Route exact path={contact.href} render={() => <Contact reportTo={this.featureLoaded}/>}/>
-              </div>
-              <Footer/>
+            <div id="content"
+              style={{
+                minHeight: `calc(100% - ${footer_height}px)`,
+                marginBottom: `-${footer_height}`,
+                paddingBottom: `${footer_height}`
+              }}>
+              <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />
+              <Route exact path={about.href} render={() => <About reportTo={this.featureLoaded}/>}/>
+              <Route exact path={contact.href} render={() => <Contact reportTo={this.featureLoaded}/>}/>
             </div>
+            <Footer/>
           </div>
         </HashRouter>
       </StyleRoot>

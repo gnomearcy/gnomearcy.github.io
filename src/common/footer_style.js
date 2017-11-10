@@ -4,6 +4,7 @@ import fontAwesomeSizeConverter from '../util/font_awesome'
 
 const iconSize = 32;
 const iconColor = "#111";
+const footer_height = grid.rowHeight * 4;
 
 const linkHoverGenerator = (color) => {
   return {
@@ -15,13 +16,14 @@ const linkHoverGenerator = (color) => {
 }
 
 export {
-  linkHoverGenerator
+  linkHoverGenerator,
+  footer_height
 }
 
 export default {
 
   width: "100%",
-  height: grid.rowHeight * 4,
+  height: footer_height,
   // display: "inline-block",
   backgroundColor: "#ccc",
   position: "relative",
