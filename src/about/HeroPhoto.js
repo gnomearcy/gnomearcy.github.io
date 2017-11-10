@@ -18,11 +18,7 @@ const HeroPhoto = () => {
     // Horizontal box centering
     paddingLeft: "8vw",
     paddingRight: "42vw",
-
-    // Center text vertically
-    top: "50%",
-    position: "absolute",
-    transform: "translateY(-50%)"
+    paddingTop: "25vh"
   }
 
   return (

@@ -14,7 +14,6 @@ const linkHoverGenerator = (color) => {
   }
 }
 
-
 export {
   linkHoverGenerator
 }
@@ -23,9 +22,10 @@ export default {
 
   width: "100%",
   height: grid.rowHeight * 4,
-  display: "inline-block",
+  // display: "inline-block",
   backgroundColor: "#ccc",
   position: "relative",
+  // bottom: 0,
 
   content:{
     display: "inline-block",

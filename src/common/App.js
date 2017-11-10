@@ -51,13 +51,13 @@ class App extends Component {
         <HashRouter>
           <div id="app_content">
             <Header highlight={this.state.highlight}/>
-            <div>
-              <div>
+            <div id="route_footer_container">
+              <div id="routes">
                 <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />
                 <Route exact path={about.href} render={() => <About reportTo={this.featureLoaded}/>}/>
                 <Route exact path={contact.href} render={() => <Contact reportTo={this.featureLoaded}/>}/>
               </div>
-              <Footer />
+              <Footer/>
             </div>
           </div>
         </HashRouter>
