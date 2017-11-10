@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Switch, Route, HashRouter, BrowserRouter} from 'react-router-dom'
+import { Router, Switch, Route, HashRouter} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Media from 'react-media'
 import Radium, {StyleRoot} from 'radium'
@@ -64,9 +64,12 @@ class App extends Component {
                 marginBottom: `-${footer_height}`,
                 paddingBottom: `${footer_height}`
               }}>
-              <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />
-              <Route exact path={about.href} render={() => <About reportTo={this.featureLoaded}/>}/>
-              <Route exact path={contact.href} render={() => <Contact reportTo={this.featureLoaded}/>}/>
+              <Switch>
+                <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />
+                <Route exact path={about.href} render={() => <About reportTo={this.featureLoaded}/>}/>
+                <Route exact path={contact.href} render={() => <Contact reportTo={this.featureLoaded}/>}/>
+                <Route component={NotFound}/>
+              </Switch>
             </div>
             <Footer/>
           </div>
