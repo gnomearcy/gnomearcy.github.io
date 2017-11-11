@@ -7,6 +7,7 @@ const linkk = {
     fontFamily: 'Montserrat',
     textDecoration: 'none',
     fontSize: 16,
+    fontWeight: "600",
     letterSpacing: '0.05rem',
     color: 'black',
     // transition: 'border 0.25s ease-out',

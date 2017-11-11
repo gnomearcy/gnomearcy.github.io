@@ -49,6 +49,7 @@ export default nanEvaluator({
       fontFamily: 'Montserrat',
       fontSize: '17px',
       letterSpacing: '0.05rem',
+      fontWeight: "600",
 
       [mq.desktop]:{
         marginLeft: dimensions.spacing.desktop

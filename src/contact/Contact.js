@@ -21,7 +21,7 @@ class Contact extends Component{
 
     return(
         <Content style={style.container}>
-          <Title value="Let's connect"/>
+          <Title injectedStyle={{marginBottom: "14px"}} value="Let's connect"/>
           <div style={style.intro_message}>
             {data.intro_message}
           </div>

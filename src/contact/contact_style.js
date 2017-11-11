@@ -5,7 +5,13 @@ import {header_height} from '../common/header/header_style'
 
 export default {
   container:{
-    paddingTop: header_height.mobile + grid.row(3)
+    paddingTop: header_height.mobile + grid.row(2),
+    width: grid.maxWidthMobile,
+
+    [mq.desktop]:{
+      paddingTop: header_height.desktop + grid.row(3),
+      width: grid.maxWidth
+    }
   },
 
   intro_message:{
@@ -14,8 +20,12 @@ export default {
     // Mobile properties
     ...{
       width: grid.maxWidthMobile,
-      marginBottom: grid.row(3),
-      textAlign: "center"
+      marginBottom: grid.row(2),
+      textAlign: "center",
+
+      [mq.desktop]:{
+        marginBottom: grid.row(3)
+      }
     },
 
     // Desktop properties
@@ -41,15 +51,15 @@ export default {
     // Mobile properties
     ...{
       width: grid.col(3),
-      marginBottom: grid.row(3),
+      marginBottom: grid.row(1),
       textAlign: "center",
-    },
-
-    // Desktop properties
-    ...{
-      ...typography.desktop.body,
-      ...{
-        [mq.desktop]:{
+      fontSize: "15px",
+      color: "#999",
+      fontFamily: "Montserrat",
+      
+      [mq.desktop]:{
+        ...typography.desktop.body,
+        ...{
           width: grid.col(6),
           marginBottom: grid.row(3),
           textAlign: "center",
@@ -59,3 +69,27 @@ export default {
     }
   }
 }
+
+// {
+//   ...typography.mobile.body,
+//
+//   // Mobile properties
+//   ...{
+//     width: grid.col(3),
+//     marginBottom: grid.row(1),
+//     textAlign: "center",
+//   },
+//
+//   // Desktop properties
+//   ...{
+//       [mq.desktop]:{
+//         ...typography.desktop.body,
+//         ...{
+//           width: grid.col(6),
+//           marginBottom: grid.row(3),
+//           textAlign: "center",
+//           margin: `0 auto ${grid.row(3)}px auto`,
+//       }
+//     }
+//   }
+// }

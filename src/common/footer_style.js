@@ -25,7 +25,7 @@ export default {
   width: "100%",
   height: footer_height,
   // display: "inline-block",
-  backgroundColor: "#ccc",
+  backgroundColor: "#ecf0f1",
   position: "relative",
   // bottom: 0,
 
@@ -70,7 +70,7 @@ export default {
 
   initials:{
 
-    fontSize: 18,
+    fontSize: 12,
     color: "#111",
     fontFamily: "Montserrat",
     marginTop: "10px",

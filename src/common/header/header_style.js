@@ -7,7 +7,7 @@ const header_height= {
   desktop: grid.rowHeight * 2
 }
 const headerBgColors= {
-  normal: "rgba(204,204,204,0.8)",
+  normal: "#ecf0f1",
   pressed: "rgba(165,165,165,0.2)"
 }
 
@@ -46,12 +46,12 @@ export default {
       // ... is fixed on top of viewport and above every other element...
       zIndex: 9999,
       position: "fixed",
-
       // ... either when asked nicely or forced to do so.
       top: 0,
-
+      boxShadow: "0 5px 10px -5px darkgrey",
       [mq.desktop]:{
-        height: header_height.desktop
+        height: header_height.desktop,
+        opacity: "0.85"
       }
     }
 }

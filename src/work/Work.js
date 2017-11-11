@@ -13,6 +13,7 @@ import {work} from '../data/routes'
 class Work extends Component{
 
   componentDidMount(){
+    console.log("Work component did mount");
     window.scrollTo(0,0);
     this.props.reportTo(work.code)
   }

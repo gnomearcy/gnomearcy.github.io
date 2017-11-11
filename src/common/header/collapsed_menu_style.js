@@ -14,7 +14,8 @@ export default {
   menu: {
     // width: grid.col(3),
     // display: "inline-block",
-    backgroundColor: colors.normal,
+    backgroundColor: "#ecf0f1", // cloud, export to colors.js
+    boxShadow: "0px 5px 10px -5px darkgrey",
 
     [mq.desktop]:{
       display: "none"
@@ -39,6 +40,7 @@ export default {
     label: {
 
       fontFamily: "Montserrat",
+      fontWeight: "600",
       fontSize: 16,
       marginLeft: iconSize + dims.spacing.mobile,
       lineHeight: `${menuItemHeight}px`,

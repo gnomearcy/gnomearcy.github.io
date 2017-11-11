@@ -34,8 +34,13 @@ class Header extends Component{
     if(e !== undefined){
       e.preventDefault();
     }
-    this.setState({
-        showCollapsedMenu: false,
+    // this.setState({
+    //     showCollapsedMenu: false,
+    // });
+    this.setState((prevState, props) => {
+      return {
+        showCollapsedMenu: false
+      };
     });
   }
 

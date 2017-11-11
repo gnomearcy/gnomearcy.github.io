@@ -30,7 +30,7 @@ const default_style = {
 class Title extends React.Component{
   render(){
     return(
-      <div style={{...this.props.injectedStyle, ...default_style}}>
+      <div style={{...default_style, ...this.props.injectedStyle}}>
         {this.props.value}
       </div>
     )

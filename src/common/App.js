@@ -61,8 +61,8 @@ class App extends Component {
             <div id="content"
               style={{
                 minHeight: `calc(100% - ${footer_height}px)`,
-                marginBottom: `-${footer_height}`,
-                paddingBottom: `${footer_height}`
+                marginBottom: `-${footer_height}px`,
+                paddingBottom: `${footer_height}px`
               }}>
               <Switch>
                 <Route exact path={work.href} render={() => <Work reportTo={this.featureLoaded}/>} />

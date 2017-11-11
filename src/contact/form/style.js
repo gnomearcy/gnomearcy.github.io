@@ -10,7 +10,7 @@ const form_style = {
     mobile: grid.col(3),
     desktop: grid.col(6)
   },
-  padding: 2 * grid.gutter,
+  padding: grid.gutter,
 
   content_width:{
     desktop: grid.col(6) - 2 * grid.gutter - 2 * form_border,
@@ -20,7 +20,13 @@ const form_style = {
 
 
 const input_padding = 20;
-const input_border = 1;
+const input_height = 6;
+const input_height_desktop = 8;
+const input_margin = 14;
+const input_border = 1; // TODO remove
+
+const vertical_spacing = 14;
+
 const input_style = {
 
   base:{
@@ -34,45 +40,49 @@ const input_style = {
   pseudoselectors:{
     // Override the "input" elements user agent stylesheet
     outline: "none",
-    border: `${input_border}px solid #CCC`,
+    border: `${input_border}px solid transparent`,
 
-    ":hover":{
-      border: `${input_border}px solid #333`
-    },
-    ":active":{
-      border: `${input_border}px solid #333`
-    },
-    ":focus":{
-      border: `${input_border}px solid black`
-    }
+    // ":hover":{
+    //   border: `${input_border}px solid #333`
+    // },
+    // ":active":{
+    //   border: `${input_border}px solid #333`
+    // },
+    // ":focus":{
+    //   border: `${input_border}px solid black`
+    // }
   }
 }
 
 export default {
 
   form: {
-    border: `${form_border}px solid #ccc`,
-    backgroundColor: "#F5F5F5",
+    // border: `${form_border}px solid #ccc`,
+    // backgroundColor: "#ecf0f1",
     overflow: "hidden",
+    borderRadius: "8px",
 
-    width:  form_style.width.mobile
-            - 2 * grid.gutter
-            - 2 * form_border,
-    padding: grid.gutter,
-    marginBottom: grid.row(3),
+    // width:  form_style.width.mobile
+    //         - 2 * grid.gutter
+    //         - 2 * form_border,
+    width: grid.maxWidthMobile,
+
+    // padding: grid.gutter,
+    marginBottom: grid.row(1),
+    // boxShadow: "0 0px 10px -1px darkgrey",
 
     [mq.desktop]: {
       width:  form_style.width.desktop
               - 4 * grid.gutter
               - 2 * form_border,
-      padding: 2 * grid.gutter,
-      margin: `0 auto ${grid.row(3)}px auto`
+      // padding: grid.gutter,
+      margin: `0 auto ${grid.row(2)}px auto`
     }
   },
 
   name: {
     container:{
-      marginBottom: grid.row(1) * 1.5,
+      marginBottom: vertical_spacing,
       [mq.desktop]: {
         // custom desktop style
       }
@@ -86,15 +96,18 @@ export default {
         // custom style (at end)
         width: `calc(100% - 2 * ${input_padding}px - 2 * ${input_border}px)`,
         padding: input_padding,
-        height: grid.row(2) - input_padding * 2,
+        // height: grid.row(2) - input_padding * 2,
+        height: input_height,
+        borderRadius: "8px",
+        backgroundColor: "#ecf0f1"
       },
 
       [mq.desktop]: {
         ...typography.desktop.body,
         ...{
           width: `calc(100% - 2 * ${input_padding}px  - 2 * ${input_border}px)`,
-          height: grid.row(2) - input_padding * 2,
-          padding: input_padding
+          height: input_height_desktop,
+          padding: input_padding,
         },
       }
     }
@@ -104,7 +117,7 @@ export default {
 
   email: {
     container:{
-      marginBottom: grid.row(2),
+      marginBottom: vertical_spacing,
       [mq.desktop]:{
         // custom desktop style
       }
@@ -116,15 +129,19 @@ export default {
       ...{
         width: `calc(100% - 2 * ${input_padding}px - 2 * ${input_border}px)`,
         padding: input_padding,
-        height: grid.row(2) - input_padding * 2,
+        // height: grid.row(2) - input_padding * 2,
+        height: input_height,
+        borderRadius: "8px",
+        backgroundColor: "#ecf0f1"
       },
 
       [mq.desktop]:{
         ...typography.desktop.body,
         ...{
           width: `calc(100% - 2 * ${input_padding}px - 2 * ${input_border}px)`,
-          height: grid.row(2) - input_padding * 2,
-          padding: input_padding
+          height: input_height_desktop,
+          padding: input_padding,
+          // borderRadius: "8px"
         }
       }
     }
@@ -133,9 +150,9 @@ export default {
   message:{
 
     container:{
-      marginBottom: grid.row(1),
+      marginBottom: vertical_spacing,
       [mq.desktop]:{
-        marginBottom: grid.row(1),
+        marginBottom: vertical_spacing,
       }
     },
 
@@ -146,9 +163,13 @@ export default {
       ...{
         width: `calc(100% - 2 * ${input_padding}px - 2 * ${input_border}px)`,
         padding: input_padding,
-        minHeight: grid.row(6) - 2 * input_padding,
-        height: grid.row(12),
-        resize: "vertical"
+        minHeight: grid.row(3) - 2 * input_padding,
+        height: grid.row(3),
+        resize: "vertical",
+        borderRadius: "8px",
+        backgroundColor: "#ecf0f1",
+        borderRadius: "8px",
+
       },
 
       [mq.desktop]:{
@@ -167,17 +188,24 @@ export default {
     ...{
       // Width is not required, it will fill entire space
       height: grid.row(2),
-      lineHeight: `${grid.row(2)}px`
-    },
-
-    [mq.desktop]:{
-      ...typography.desktop.body,
-      ...{
-        height: grid.row(2),
-        width: grid.col(3),
-        lineHeight: `${grid.row(2)}px`,
-        float: "right"
+      lineHeight: `${grid.row(2)}px`,
+      borderRadius: "8px",
+      fontFamily: "Montserrat",
+      fontWeight: "600",
+      fontSize: "20px",
+      [mq.desktop]:{
+        ...typography.desktop.body,
+        ...{
+          height: grid.row(2),
+          // width: grid.col(3),
+          width: "100%",
+          lineHeight: `${grid.row(2)}px`,
+          float: "right",
+          fontFamily: "Montserrat",
+          fontWeight: "600",
+          fontSize: "20px",
+        }
       }
-    }
+    },
   }
 }

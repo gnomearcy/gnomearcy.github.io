@@ -6,18 +6,21 @@ export {
 
 export default {
   userSelect: "none",
-  border: `${border}px solid #b6b6b6`,
-  color: "#333",
-  backgroundColor: "#eaeaea",
+  // border: `${border}px solid #b6b6b6`,
+  color: "white",
+  fontWeight: "600",
+  fontSize: 20,
+  fontFamily: "Montserrat",
+  backgroundColor: "#e74c3c",
   textTransform: "uppercase",
   textAlign: "center",
   textDecoration: "none",
 
   ":hover":{
-    backgroundColor: "#dedede"
+    backgroundColor: "#E12F19"
   },
 
   ":active":{
-    backgroundColor: "#d3d3d3"
+    backgroundColor: "#FF1B00"
   }
 }
